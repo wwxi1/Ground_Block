@@ -2,25 +2,28 @@
 #include "Ground_Block.h"
 
 uint8_t solenoid_is_open = 0; // 夹爪张开与关闭状态
-uint8_t solenoid_enable = 0;  // 夹爪使能状态
+uint8_t solenoid_enable = 0; // 夹爪使能状态
 
 void Ground_Block_Enable()
 {
     solenoid_enable = 1;
     DJmotor[0].Begin = 1;
     DJmotor[0].MODE_Set = DJ_Position;
+
 }
 void Ground_Block_Disable()
 {
-    solenoid_enable = 0;              // 关闭电磁阀使能
-    DJmotor[0].Begin = 0;             // 停止电机运行
+    solenoid_enable = 0;        // 关闭电磁阀使能
+    DJmotor[0].Begin = 0;       // 停止电机运行
     DJmotor[0].MODE_Set = DJ_Disable; // 设置电机为禁用模式
+
 }
 
 void Ground_Block_Init()
 {
     void Ground_Block_Disable();
 }
+
 
 /*
 void solenoid_reset()
@@ -41,7 +44,7 @@ void solenoid_reset()
 
 void Ground_Block_reset()
 {
-    // 下降高度，打开夹爪
+   //下降高度，打开夹爪
     DJmotor[0].valSet.angle_deg = 0.0f;
     solenoid_on(2, 0x01);
     solenoid_on(3, 0x01);
@@ -51,7 +54,7 @@ void Ground_Block_reset()
 
 void Ground_Block_close()
 {
-    // 先下降高度，再收夹爪,再收主杆
+   //先下降高度，再收夹爪,再收主杆
     DJmotor[0].valSet.angle_deg = 0.0f;
     osDelay(4000);
     solenoid_on(2, 0x00);
@@ -73,23 +76,23 @@ void Ground_Block_GetReady() // 预取大地块
 // 接收数据 并执行对应动作，此处osdelay需更改，目前测试用
 void Ground_Block_Fetch(uint8_t *Rxdata)
 {
-    if (solenoid_is_open = 1)
-    {
-        solenoid_on(2, 0x00); // 夹爪闭合
-        solenoid_on(3, 0x00);
-        osDelay(1000);
-    }
+     if (solenoid_is_open = 1)
+        {
+            solenoid_on(2, 0x00); // 夹爪闭合
+            solenoid_on(3, 0x00);
+            osDelay(1000);
+        }
 
     switch (Rxdata[0])
     {
     case 1:
 
-        DJmotor[0].valSet.angle_deg = 0.0f;
+         DJmotor[0].valSet.angle_deg = 0.0f;
 
         break;
     case 2:
-
-        DJmotor[0].valSet.angle_deg = 0.0f;
+        
+         DJmotor[0].valSet.angle_deg = 0.0f;
 
         break;
     default:
@@ -98,7 +101,7 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
 }
 
 void Ground_Block_Lay(uint8_t *Rxdata)
-{
+{   
     switch (Rxdata[0])
     {
     case 1:
@@ -119,11 +122,11 @@ void Ground_Block_Lay(uint8_t *Rxdata)
     }
 }
 
-void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
+void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader,uint8_t *Rxdata)
 {
     if (solenoid_is_open == 1 && DJmotor[0].Begin == 1)
     {
-        if (RxHeader.ExtId == 0x01010303)
+        if(RxHeader.ExtId == 0x01010303)
         {
             Ground_Block_Fetch(Rxdata);
         }
@@ -137,15 +140,16 @@ void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
         }
         else if (RxHeader.ExtId == 0x010103FF)
         {
-            Ground_Block_reset();
+           Ground_Block_reset();
         }
         else if (RxHeader.ExtId == 0x01010301)
         {
-            Ground_Block_Enable();
+           Ground_Block_Enable();
         }
-        else
+        else 
         {
             return;
         }
-    }
+
+}
 }
