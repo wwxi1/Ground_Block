@@ -23,15 +23,16 @@ typedef enum {
 #define PID_INC  PIDINC
 
 typedef struct {
-    float KP;
-    float KI;
-    float KD;
-    volatile float SetVal;   /* target   */
-    volatile float CurVal;   /* feedback */
-    volatile float err[3];
-    volatile float output;
-    uint8_t mode;
-    float integral_limit;
+    float SetVal;       
+    float CurVal;       
+    float KP, KI, KD;    //系数
+    float err[3]; 
+    float SumError;
+    float iLimit;        // 积分限幅(替代硬编码 100.0f)
+    float deadband;      // 误差死区
+    float lastCurVal;    // 上次测量值(D 项对测量值求导)
+    float output;
+    uint8_t mode;    
 } PIDType;
 
 typedef struct {

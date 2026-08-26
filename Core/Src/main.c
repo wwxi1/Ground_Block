@@ -138,6 +138,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
     uint8_t data_test[] = {0};
     int x = 0;
     switch (x)
@@ -159,7 +160,7 @@ int main(void)
     }
     /* USER CODE END 3 */
   }
-
+}
   /**
    * @brief System Clock Configuration
    * @retval None
