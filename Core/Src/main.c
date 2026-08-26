@@ -109,6 +109,8 @@ int main(void)
   Beep_Init();
   CAN_InitSendQueue();
   UART_Start_Recieve();
+  solenoid_init(1);
+  solenoid_init(2);
   solenoid_init(3);
   #if USE_DJ
   DJmotor_Init();
@@ -116,6 +118,7 @@ int main(void)
   #if USE_ZMDR
   ZdriveInit();
   #endif
+  Ground_Block_Init();
   /* USER CODE END 2 */
 
   /* Init scheduler */
