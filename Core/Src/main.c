@@ -136,8 +136,13 @@ int main(void)
   {
 
     /* USER CODE END WHILE */
-
+ 
     /* USER CODE BEGIN 3 */
+    uint8_t data_test[]={0};
+    Ground_Block_GetReady();
+    Ground_Block_Fetch(data_test);
+    Ground_Block_Lay(data_test);
+    Ground_Block_close()
   }
   /* USER CODE END 3 */
 }
