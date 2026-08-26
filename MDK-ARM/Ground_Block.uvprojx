@@ -1635,6 +1635,11 @@
               <FileType>1</FileType>
               <FilePath>..\APL\Tasks\Src\myostasks.c</FilePath>
             </File>
+            <File>
+              <FileName>Ground_Block.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APL\Tasks\Src\Ground_Block.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -87,12 +87,12 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
     {
     case 1:
 
-         DJmotor[i].valSet.angle_deg = 0.0f;
+         DJmotor[0].valSet.angle_deg = 0.0f;
 
         break;
     case 2:
         
-         DJmotor[i].valSet.angle_deg = 0.0f;
+         DJmotor[0].valSet.angle_deg = 0.0f;
 
         break;
     default:
@@ -124,25 +124,25 @@ void Ground_Block_Lay(uint8_t *Rxdata)
 
 void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader,uint8_t *Rxdata)
 {
-    if (solenoid_is_open = 1 && DJmotor[i].Begin = 1)
+    if (solenoid_is_open == 1 && DJmotor[0].Begin == 1)
     {
-        if(RxHeader.ExtID == 0x01010303)
+        if(RxHeader.ExtId == 0x01010303)
         {
             Ground_Block_Fetch(Rxdata);
         }
-        else if (RxHeader.ExtID == 0x01010304)
+        else if (RxHeader.ExtId == 0x01010304)
         {
             Ground_Block_Lay(Rxdata);
         }
-        else if (RxHeader.ExtID == 0x01010302)
+        else if (RxHeader.ExtId == 0x01010302)
         {
             Ground_Block_GetReady();
         }
-        else if (RxHeader.ExtID == 0x010103FF)
+        else if (RxHeader.ExtId == 0x010103FF)
         {
            Ground_Block_reset();
         }
-        else if (RxHeader.ExtID == 0x01010301)
+        else if (RxHeader.ExtId == 0x01010301)
         {
            Ground_Block_Enable();
         }

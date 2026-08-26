@@ -53,6 +53,7 @@
 ".\ground_block\djmotor.o"
 ".\ground_block\zdrive.o"
 ".\ground_block\myostasks.o"
+".\ground_block\ground_block.o"
 --strict --scatter ".\Ground_Block\Ground_Block.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

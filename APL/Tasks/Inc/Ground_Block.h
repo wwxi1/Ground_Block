@@ -3,6 +3,7 @@
 
 #include "solenoid.h"
 #include "DJmotor.h"
+#include "cmsis_os.h"
 
 void Ground_Block_Enable();
 void Ground_Block_Disable();
