@@ -150,15 +150,5 @@ void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader,uint8_t *Rxdata)
         {
             return;
         }
-
-        
-
-
-
-       
-
-
-
-
-}
+  }
 }
