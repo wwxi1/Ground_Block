@@ -3,6 +3,13 @@
 
 uint8_t solenoid_signal = 0;
 
+void Ground_Block_enable(){
+    solenoid_signal = 1;
+    for (uint32_t i = 0; i < USE_DJNUM; i++)
+    {
+        DJmotor[i].Begin = 1;
+    }
+}
 void solenoid_reset()
 {
     uint8_t data1 = 0x04; //  先收夹爪

@@ -2,7 +2,9 @@
 #define GROUND_BLOCK
 
 #include "solenoid.h"
+#include "DJmotor.h"
 
 extern uint8_t Ground_Block_Begin = 0;
+
 #endif
 
