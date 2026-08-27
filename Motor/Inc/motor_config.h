@@ -4,7 +4,8 @@
  * @LastEditors: Frt001 2067314783@qq.com
  * @LastEditTime: 2026-08-25 15:45:12
  * @FilePath: \f4_show\Motor\Inc\motor_config.h
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 
+    进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 /**
  * @file    motor_config.h
@@ -25,9 +26,9 @@ extern "C"
 /* ------------------------------------------------------------------ */
 /* 电机驱动开关:1 = 编译并使用,0 = 不编译                               */
 /* ------------------------------------------------------------------ */
-#define USE_DJ 1
+#define USE_DJ 1 //是否使用电机
 #define USE_VESC 0 // 未验证,不要启用
-#define USE_ZMDR 1
+#define USE_ZMDR 1 //是是否使用ZDrive
 
 /* ------------------------------------------------------------------ */
 /* DJI M2006 / M3508                                                    */
@@ -35,10 +36,10 @@ extern "C"
 #define MOTOR_DJI_COUNT 4U  /* 必须为 4 或 8(DJI CAN 打包要求) */
 #define MOTOR_DJI_CAN_BUS 0 /* 0=CAN1,1=CAN2 */
 
-#define MOTOR_M2006_COUNT 4U
-#define MOTOR_M3508_COUNT 0U
+#define MOTOR_M2006_COUNT 0U
+#define MOTOR_M3508_COUNT 4U
 #define MOTOR_M2006_REDUCTION_RATIO 36U
-#define MOTOR_M3508_REDUCTION_RATIO 19.20320855f
+#define MOTOR_M3508_REDUCTION_RATIO 19.20320855f //电机内部减速比
 
 /* ------------------------------------------------------------------ */
 /* VESC                                                                 */
