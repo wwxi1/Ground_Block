@@ -139,8 +139,8 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-    uint8_t data_test[] = {0};
-    int x = 0;
+    uint8_t data_test[] = {};
+    int x ;
     switch (x)
     {
     case 0: 
@@ -155,6 +155,9 @@ int main(void)
       Ground_Block_Lay(data_test);
       break;
     case 4:
+      Ground_Block_reset();
+      break;
+    case 5:
       Ground_Block_close();
       break;
     }

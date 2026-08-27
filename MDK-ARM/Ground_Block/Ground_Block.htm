@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Ground_Block\Ground_Block.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Ground_Block\Ground_Block.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Wed Aug 26 22:15:44 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Thu Aug 27 10:53:15 2026
 <BR><P>
 <H3>Maximum Stack Usage =        348 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -801,11 +801,11 @@ Global Symbols
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[a2]"></a>Ground_Block_Enable</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, ground_block.o(.text.Ground_Block_Enable))
+<P><STRONG><a name="[a2]"></a>Ground_Block_Enable</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, ground_block.o(.text.Ground_Block_Enable))
 <BR><BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
 </UL>
 
-<P><STRONG><a name="[9c]"></a>Ground_Block_Fetch</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, ground_block.o(.text.Ground_Block_Fetch))
+<P><STRONG><a name="[9c]"></a>Ground_Block_Fetch</STRONG> (Thumb, 120 bytes, Stack size 24 bytes, ground_block.o(.text.Ground_Block_Fetch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = Ground_Block_Fetch &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
@@ -815,22 +815,23 @@ Global Symbols
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
 </UL>
 
-<P><STRONG><a name="[9e]"></a>Ground_Block_Func</STRONG> (Thumb, 198 bytes, Stack size 48 bytes, ground_block.o(.text.Ground_Block_Func))
+<P><STRONG><a name="[9e]"></a>Ground_Block_Func</STRONG> (Thumb, 200 bytes, Stack size 48 bytes, ground_block.o(.text.Ground_Block_Func))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = Ground_Block_Func &rArr; Ground_Block_Lay &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_GetReady
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Enable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo1MsgPendingCallback
 </UL>
 
-<P><STRONG><a name="[a0]"></a>Ground_Block_GetReady</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_GetReady))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Ground_Block_GetReady &rArr; solenoid_on &rArr; register_updata &rArr; HAL_GPIO_WritePin
+<P><STRONG><a name="[a0]"></a>Ground_Block_GetReady</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, ground_block.o(.text.Ground_Block_GetReady))
+<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = Ground_Block_GetReady &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
+<BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
@@ -840,7 +841,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9f]"></a>Ground_Block_Lay</STRONG> (Thumb, 122 bytes, Stack size 24 bytes, ground_block.o(.text.Ground_Block_Lay))
+<P><STRONG><a name="[9f]"></a>Ground_Block_Lay</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, ground_block.o(.text.Ground_Block_Lay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = Ground_Block_Lay &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
@@ -850,7 +851,7 @@ Global Symbols
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
 </UL>
 
-<P><STRONG><a name="[a3]"></a>Ground_Block_close</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_close))
+<P><STRONG><a name="[a3]"></a>Ground_Block_close</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_close))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = Ground_Block_close &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
@@ -859,13 +860,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a1]"></a>Ground_Block_reset</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_reset))
+<P><STRONG><a name="[a1]"></a>Ground_Block_reset</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_reset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = Ground_Block_reset &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
 </UL>
 
 <P><STRONG><a name="[f7]"></a>HAL_CAN_ActivateNotification</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, stm32f4xx_hal_can.o(.text.HAL_CAN_ActivateNotification))
@@ -1764,11 +1766,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ZdriveReceive
 </UL>
 
-<P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 168 bytes, Stack size 24 bytes, main.o(.text.main))
+<P><STRONG><a name="[6e]"></a>main</STRONG> (Thumb, 166 bytes, Stack size 24 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 316 + Unknown Stack Size
 <LI>Call Chain = main &rArr; osKernelStart &rArr; vTaskStartScheduler &rArr; xTimerCreateTimerTask &rArr; prvCheckForValidListAndQueue &rArr; xQueueGenericCreateStatic &rArr; prvInitialiseNewQueue &rArr; xQueueGenericReset &rArr; xTaskRemoveFromEventList &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_close
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_GetReady
@@ -1802,10 +1805,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_close
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_GetReady
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Water
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BeepAlarmTask
 </UL>
 
@@ -1881,11 +1885,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;register_updata
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_close
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_GetReady
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_init
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 </UL>
 
 <P><STRONG><a name="[128]"></a>uxListRemove</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, list.o(.text.uxListRemove))

@@ -175,6 +175,21 @@
           <WinNumber>1</WinNumber>
           <ItemText>\\Ground_Block\../Motor/Src/DJmotor.c\DJmotor[1].posPID.KI</ItemText>
         </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\Ground_Block\../Motor/Src/DJmotor.c\DJmotor[1].MODE_Set</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>data_test</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>x</ItemText>
+        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
