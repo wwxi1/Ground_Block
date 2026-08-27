@@ -5,7 +5,7 @@ uint8_t solenoid_is_open = 0; // 夹爪张开与关闭状态
 uint8_t solenoid_enable = 0; // 夹爪使能状态
 static volatile uint8_t gb_cmd = 0;   
 static uint8_t gb_data[8];    
-      
+
 
 void Ground_Block_Enable()
 {
@@ -83,6 +83,7 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
      if (solenoid_is_open == 1)
         {
             solenoid_on(3, 0x04); // 夹爪闭合
+            solenoid_is_open == 0
             osDelay(1000);
         }
 
@@ -111,11 +112,13 @@ void Ground_Block_Lay(uint8_t *Rxdata)
         DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
         osDelay(2000);
         solenoid_on(3, 0x03); // 夹爪张开
+        solenoid_is_open == 1
         break;
     case 2:
         DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
         osDelay(2000);
         solenoid_on(3, 0x03); // 夹爪张开
+        solenoid_is_open == 1
         osDelay(1000);
         break;
     default:
