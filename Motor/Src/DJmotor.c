@@ -128,14 +128,13 @@ void DJmotor_Init(void)
 
     for (uint32_t i = 0; i < USE_DJNUM; i++)//初始化使用电机的PID系数
     {
-        PID_Init(&DJmotor[i].posPID, 0.015f, 0.0005f, 0.005f, PIDPOS);
-        PID_Init(&DJmotor[i].velPID, 2.975f, 0.045f, 0.001f, PIDINC); 
+        PID_Init(&DJmotor[i].posPID, 0.5f, 0.001f, 20.0f, PIDPOS);
+        PID_Init(&DJmotor[i].velPID, 5.5f, 0.3f, 0.01f, PIDINC);
+
+        DJmotor[i].posPID.iLimit = 5000.0f;  // 积分限幅
+        DJmotor[i].posPID.deadband = 100.0f; // 死区范围
     }
 }
-
-/*用于重新加载指定电机的PID参数，包括位置PID和速度PID的参数配置
-motor：指向电机结构体的指针，用于指定要重新加载PID参数的电机
-pid_reload：包含新的位置PID和速度PID参数的结构体*/
 void DJmotor_PID_Reload(DJMotorPointer motor, DJmotorPID pid_reload)
 {
     PID_Init(&motor->posPID, 

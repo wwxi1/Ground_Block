@@ -5,6 +5,8 @@
 #include "DJmotor.h"
 #include "cmsis_os.h"
 
+#define GROUND_BLOCK_dji_num 1
+
 void Ground_Block_Enable();
 void Ground_Block_Disable();
 void Ground_Block_Init();
