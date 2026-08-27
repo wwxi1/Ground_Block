@@ -138,29 +138,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-    uint8_t data_test[] = {};
-    int x ;
-    switch (x)
-    {
-    case 0: 
-      break;
-    case 1:
-      Ground_Block_GetReady();
-      break;
-    case 2:
-      Ground_Block_Fetch(data_test);
-      break;
-    case 3:
-      Ground_Block_Lay(data_test);
-      break;
-    case 4:
-      Ground_Block_reset();
-      break;
-    case 5:
-      Ground_Block_close();
-      break;
-    }
+  Ground_Block_Test();
+  
     /* USER CODE END 3 */
   }
 }

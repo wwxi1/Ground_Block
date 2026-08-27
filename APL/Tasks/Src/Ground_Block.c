@@ -76,8 +76,6 @@ void Ground_Block_GetReady() // 预取大地块
     osDelay(1000);
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
 
-
-
 }
 
 // 接收数据 并执行对应动作，此处osdelay需更改，目前测试用
@@ -131,7 +129,7 @@ void Ground_Block_Lay(uint8_t *Rxdata)
 
 void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader,uint8_t *Rxdata)
 {
-    if (solenoid_is_open == 1 && DJmotor[GROUND_BLOCK_dji_num].Begin == 1)
+    if (solenoid_enable == 1 && DJmotor[GROUND_BLOCK_dji_num].Begin == 1)
     {
         if(RxHeader.ExtId == 0x01010303)
         {
@@ -158,4 +156,35 @@ void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader,uint8_t *Rxdata)
             return;
         }
   }
+}
+
+
+
+
+uint8_t data_test[] = {0};
+uint8_t x = 0;
+
+
+void Ground_Block_Test(){
+ 
+    switch (x)
+    {
+    case 0: 
+      break;
+    case 1:
+      Ground_Block_GetReady();
+      break;
+    case 2:
+      Ground_Block_Fetch(data_test);
+      break;
+    case 3:
+      Ground_Block_Lay(data_test);
+      break;
+    case 4:
+      Ground_Block_reset();
+      break;
+    case 5:
+      Ground_Block_close();
+      break;
+    }   
 }

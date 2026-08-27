@@ -17,5 +17,8 @@ void Ground_Block_Fetch(uint8_t *Rxdata);
 void Ground_Block_Lay(uint8_t *Rxdata);
 void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader,uint8_t *Rxdata);
 
+
+void Ground_Block_Test(void);
+
 #endif
 

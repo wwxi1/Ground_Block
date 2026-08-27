@@ -183,12 +183,12 @@
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>data_test</ItemText>
+          <ItemText>x</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>1</WinNumber>
-          <ItemText>x</ItemText>
+          <ItemText>data_test</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
