@@ -61,6 +61,13 @@ const osThreadAttr_t BeepTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for Ground_Block */
+osThreadId_t Ground_BlockHandle;
+const osThreadAttr_t Ground_Block_attributes = {
+  .name = "Ground_Block",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -69,6 +76,7 @@ const osThreadAttr_t BeepTask_attributes = {
 
 void LedWaterTask(void *argument);
 void BeepAlarmTask(void *argument);
+void Ground_Block_Task(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -104,6 +112,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of BeepTask */
   BeepTaskHandle = osThreadNew(BeepAlarmTask, NULL, &BeepTask_attributes);
+
+  /* creation of Ground_Block */
+  Ground_BlockHandle = osThreadNew(Ground_Block_Task, NULL, &Ground_Block_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -149,6 +160,24 @@ __weak void BeepAlarmTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END BeepAlarmTask */
+}
+
+/* USER CODE BEGIN Header_Ground_Block_Task */
+/**
+* @brief Function implementing the Ground_Block thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Ground_Block_Task */
+__weak void Ground_Block_Task(void *argument)
+{
+  /* USER CODE BEGIN Ground_Block_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END Ground_Block_Task */
 }
 
 /* Private application code --------------------------------------------------*/

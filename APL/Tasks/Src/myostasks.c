@@ -26,3 +26,13 @@ void BeepAlarmTask(void *argument)
     osDelay(1);
   }
 }
+
+void Ground_Block_Task(void *argument)
+{
+
+  for(;;)
+  {
+     Ground_Block_Process();
+  }
+
+}
