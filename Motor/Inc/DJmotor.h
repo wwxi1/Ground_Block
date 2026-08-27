@@ -16,12 +16,12 @@ extern "C"
 {
 #endif
 
-#define M3508_NUM MOTOR_M3508_COUNT
-#define M2006_NUM MOTOR_M2006_COUNT
-#define USE_DJNUM MOTOR_DJI_COUNT
-#define M2006_RATIO MOTOR_M2006_REDUCTION_RATIO
-#define M3508_RATIO MOTOR_M3508_REDUCTION_RATIO
-#define Zero_Distance 15
+#define M3508_NUM MOTOR_M3508_COUNT //  定义M3508电机的数量
+#define M2006_NUM MOTOR_M2006_COUNT //  定义M2006电机的数量
+#define USE_DJNUM MOTOR_DJI_COUNT //  定义使用的电机编号数量
+#define M2006_RATIO MOTOR_M2006_REDUCTION_RATIO //  定义M2006电机的减速比
+#define M3508_RATIO MOTOR_M3508_REDUCTION_RATIO //  定义M3508电机的减速比
+#define Zero_Distance 15 //  定义零点距离阈值
 
     typedef enum
     {
@@ -67,14 +67,18 @@ extern "C"
         int16_t ZeroRPMLimit;         // rpm
         int16_t ZeroCurrentLimit_raw; // raw
         bool IsLooseStuck;
+
+        int16_t PosDeadband;   // 位置死区, 单位:编码器脉冲(带内不再追位置, 消除到位反冲)
+        
+
     } DJmotorLimit;
 
     typedef struct
     {
-        volatile bool ZeroFlag;
-        volatile bool Overtimeflag;
-        volatile bool StuckFlag;
-        volatile bool IsSetZero;
+        volatile bool ZeroFlag; //  零标志位，用于表示电机是否处于零位状态
+        volatile bool Overtimeflag; //  过时标志位，用于表示电机是否运行超时
+        volatile bool StuckFlag; //  卡住标志位，用于表示电机是否可能被卡住
+        volatile bool IsSetZero; //  零位置设置标志位，用于表示零位置是否已设置
     } DJmotorStatus;
 
     typedef struct
@@ -86,10 +90,10 @@ extern "C"
 
     typedef struct
     {
-        volatile uint32_t lastRxTime;
-        uint16_t stuckCount;
-        uint16_t timeoutCount;
-    } DJmotorError;
+        volatile uint32_t lastRxTime; //上次接收数据的时间戳，使用volatile关键字防止编译器优化
+        uint16_t stuckCount; //  电机卡住计数器，用于检测电机是否卡住
+        uint16_t timeoutCount; //  超时计数器，用于检测通信超时
+    } DJmotorError; //  DJmotorError结构体，用于存储电机错误状态相关信息
 
     typedef struct
     {
