@@ -9,3 +9,4 @@ MDK-ARM/RTE/
 MDK-ARM/DebugConfig/
 *.uvguix.*
 MDK-ARM/RTE/
+build
