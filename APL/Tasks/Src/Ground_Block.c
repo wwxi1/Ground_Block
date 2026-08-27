@@ -83,7 +83,7 @@ void Ground_Block_GetReady() // 预取大地块
 // 接收数据 并执行对应动作，此处osdelay需更改，目前测试用
 void Ground_Block_Fetch(uint8_t *Rxdata)
 {
-     if (solenoid_is_open = 1)
+     if (solenoid_is_open == 1)
         {
             solenoid_on(2, 0x00); // 夹爪闭合
             solenoid_on(3, 0x00);
