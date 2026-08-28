@@ -3,10 +3,10 @@
 
 uint8_t solenoid_is_open = 0; // 夹爪张开与关闭状态
 uint8_t solenoid_enable = 0; // 夹爪使能状态
- volatile uint8_t gb_cmd = 0;   
+volatile uint8_t gb_cmd = 0;   
 static uint8_t gb_data[8];    
 
-
+//使能电机控制，设置为失能模式
 void Ground_Block_Enable()
 {
     solenoid_enable = 1;
@@ -14,6 +14,8 @@ void Ground_Block_Enable()
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Disable;
 
 }
+
+//失能电机控制
 void Ground_Block_Disable()
 {
     solenoid_enable = 0;        // 关闭电磁阀使能
@@ -22,6 +24,7 @@ void Ground_Block_Disable()
 
 }
 
+//初始化
 void Ground_Block_Init()
 {
     Ground_Block_Disable();
