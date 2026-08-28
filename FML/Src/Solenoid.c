@@ -57,7 +57,8 @@ void solenoid_init(uint8_t usart_channel)
     case Solenoid__USART_three:
         solenoid_channel_init(&solenoid_Channel3, GPIOC, GPIO_PIN_10, GPIO_PIN_11);
         __HAL_RCC_GPIOC_CLK_ENABLE();
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10 | GPIO_PIN_11, GPIO_PIN_RESET); /* 将PC10和PC11引脚设置为低电平 */
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10 | GPIO_PIN_11, GPIO_PIN_RESET); 
+        /* 将PC10和PC11引脚设置为低电平 */
         GPIO_InitStruct.Pin = GPIO_PIN_10 | GPIO_PIN_11; /* 配置PC10和PC11引脚 */
         GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP; /* 配置为推挽输出模式 */
         GPIO_InitStruct.Pull = GPIO_NOPULL; /* 浮空输入 */
@@ -80,21 +81,27 @@ void register_updata(Solenoid_t *solenoid, uint8_t *data)
     //  检查当前数据是否与上一次发送的数据相同，如果相同则直接返回，避免重复发送
         return;
     solenoid->data_prve = *data;
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++) 
+    /* 通过SPI协议方式发送4位数据,循环4次，每次处理1位数据,从高位开始发送     */
     {
-        if ((*data & 0x08) == 0x08)
+        if ((*data & 0x08) == 0x08) //  检查当前数据位是否为1
         {
-            HAL_GPIO_WritePin(solenoid->gpio_port, solenoid->gpio_pin_sda, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(solenoid->gpio_port, solenoid->gpio_pin_sda, GPIO_PIN_SET); 
+            //  如果数据位为1，则设置SDA引脚为高电平
         }
         else
         {
             HAL_GPIO_WritePin(solenoid->gpio_port, solenoid->gpio_pin_sda, GPIO_PIN_RESET);
+             //  如果数据位为0，则设置SDA引脚为低电平
         }
-        *data <<= 1;
+        *data <<= 1; //  将数据左移一位，准备下一位的发送
         HAL_GPIO_WritePin(solenoid->gpio_port, solenoid->gpio_pin_clk, GPIO_PIN_SET);
+         //  产生时钟上升沿
         HAL_GPIO_WritePin(solenoid->gpio_port, solenoid->gpio_pin_clk, GPIO_PIN_RESET);
+         //  产生时钟下降沿
     }
-    HAL_GPIO_WritePin(solenoid->gpio_port, solenoid->gpio_pin_clk, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(solenoid->gpio_port, solenoid->gpio_pin_clk, GPIO_PIN_SET); 
+    //  额外产生一个时钟脉冲，用于完成数据传输
     HAL_GPIO_WritePin(solenoid->gpio_port, solenoid->gpio_pin_clk, GPIO_PIN_RESET);
 }
 
@@ -104,13 +111,13 @@ void solenoid_on(uint8_t usart_channel, uint8_t cmd)
     uint8_t data = cmd & 0x0f;
     switch (usart_channel)
     {
-    case 1:
+    case Solenoid__USART_one:
         register_updata(&solenoid_Channel1, &data);
         break;
-    case 2:
+    case Solenoid__USART_two:
         register_updata(&solenoid_Channel2, &data);
         break;
-    case 3:
+    case Solenoid__USART_three:
         register_updata(&solenoid_Channel3, &data);
         break;
     default:
