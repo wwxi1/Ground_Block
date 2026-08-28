@@ -4505,22 +4505,22 @@ Image Symbol Table
     [Anonymous Symbol]                       0x080054d8   Section        0  myostasks.o(.text.LedWaterTask)
     [Anonymous Symbol]                       0x080054e8   Section        0  led.o(.text.Led_Water)
     [Anonymous Symbol]                       0x08005584   Section        0  can.o(.text.MX_CAN1_Init)
-    [Anonymous Symbol]                       0x080056a8   Section        0  can.o(.text.MX_CAN2_Init)
-    [Anonymous Symbol]                       0x080057b4   Section        0  dma.o(.text.MX_DMA_Init)
-    [Anonymous Symbol]                       0x0800584c   Section        0  freertos.o(.text.MX_FREERTOS_Init)
-    [Anonymous Symbol]                       0x080058b8   Section        0  gpio.o(.text.MX_GPIO_Init)
-    [Anonymous Symbol]                       0x08005960   Section        0  tim.o(.text.MX_TIM2_Init)
-    [Anonymous Symbol]                       0x080059f8   Section        0  tim.o(.text.MX_TIM3_Init)
-    [Anonymous Symbol]                       0x08005a94   Section        0  usart.o(.text.MX_USART1_UART_Init)
-    [Anonymous Symbol]                       0x08005ad4   Section        0  usart.o(.text.MX_USART2_UART_Init)
-    [Anonymous Symbol]                       0x08005b14   Section        0  stm32f4xx_it.o(.text.MemManage_Handler)
-    [Anonymous Symbol]                       0x08005b18   Section        0  mathfunc.o(.text.N2DEG)
-    [Anonymous Symbol]                       0x08005b34   Section        0  stm32f4xx_it.o(.text.NMI_Handler)
-    NVIC_EncodePriority                      0x08005b39   Thumb Code   108  stm32f4xx_hal_cortex.o(.text.NVIC_EncodePriority)
-    [Anonymous Symbol]                       0x08005b38   Section        0  stm32f4xx_hal_cortex.o(.text.NVIC_EncodePriority)
-    [Anonymous Symbol]                       0x08005ba4   Section        0  pid.o(.text.PID_Calculate)
-    [Anonymous Symbol]                       0x08005d48   Section        0  pid.o(.text.PID_Init)
-    [Anonymous Symbol]                       0x08005da0   Section        0  pid.o(.text.PID_Reset)
+    [Anonymous Symbol]                       0x080056ac   Section        0  can.o(.text.MX_CAN2_Init)
+    [Anonymous Symbol]                       0x080057b8   Section        0  dma.o(.text.MX_DMA_Init)
+    [Anonymous Symbol]                       0x08005850   Section        0  freertos.o(.text.MX_FREERTOS_Init)
+    [Anonymous Symbol]                       0x080058bc   Section        0  gpio.o(.text.MX_GPIO_Init)
+    [Anonymous Symbol]                       0x08005964   Section        0  tim.o(.text.MX_TIM2_Init)
+    [Anonymous Symbol]                       0x080059fc   Section        0  tim.o(.text.MX_TIM3_Init)
+    [Anonymous Symbol]                       0x08005a98   Section        0  usart.o(.text.MX_USART1_UART_Init)
+    [Anonymous Symbol]                       0x08005ad8   Section        0  usart.o(.text.MX_USART2_UART_Init)
+    [Anonymous Symbol]                       0x08005b18   Section        0  stm32f4xx_it.o(.text.MemManage_Handler)
+    [Anonymous Symbol]                       0x08005b1c   Section        0  mathfunc.o(.text.N2DEG)
+    [Anonymous Symbol]                       0x08005b38   Section        0  stm32f4xx_it.o(.text.NMI_Handler)
+    NVIC_EncodePriority                      0x08005b3d   Thumb Code   108  stm32f4xx_hal_cortex.o(.text.NVIC_EncodePriority)
+    [Anonymous Symbol]                       0x08005b3c   Section        0  stm32f4xx_hal_cortex.o(.text.NVIC_EncodePriority)
+    [Anonymous Symbol]                       0x08005ba8   Section        0  pid.o(.text.PID_Calculate)
+    [Anonymous Symbol]                       0x08005d4c   Section        0  pid.o(.text.PID_Init)
+    [Anonymous Symbol]                       0x08005da4   Section        0  pid.o(.text.PID_Reset)
     [Anonymous Symbol]                       0x08005dd0   Section        0  port.o(.text.PendSV_Handler)
     pxCurrentTCBConst                        0x08005e30   Number         0  port.o(.text.PendSV_Handler)
     [Anonymous Symbol]                       0x08005e40   Section        0  port.o(.text.SVC_Handler)
@@ -5137,21 +5137,21 @@ Image Symbol Table
     HardFault_Handler                        0x080054d5   Thumb Code     4  stm32f4xx_it.o(.text.HardFault_Handler)
     LedWaterTask                             0x080054d9   Thumb Code    14  myostasks.o(.text.LedWaterTask)
     Led_Water                                0x080054e9   Thumb Code   156  led.o(.text.Led_Water)
-    MX_CAN1_Init                             0x08005585   Thumb Code   292  can.o(.text.MX_CAN1_Init)
-    MX_CAN2_Init                             0x080056a9   Thumb Code   266  can.o(.text.MX_CAN2_Init)
-    MX_DMA_Init                              0x080057b5   Thumb Code   152  dma.o(.text.MX_DMA_Init)
-    MX_FREERTOS_Init                         0x0800584d   Thumb Code   106  freertos.o(.text.MX_FREERTOS_Init)
-    MX_GPIO_Init                             0x080058b9   Thumb Code   168  gpio.o(.text.MX_GPIO_Init)
-    MX_TIM2_Init                             0x08005961   Thumb Code   150  tim.o(.text.MX_TIM2_Init)
-    MX_TIM3_Init                             0x080059f9   Thumb Code   154  tim.o(.text.MX_TIM3_Init)
-    MX_USART1_UART_Init                      0x08005a95   Thumb Code    64  usart.o(.text.MX_USART1_UART_Init)
-    MX_USART2_UART_Init                      0x08005ad5   Thumb Code    64  usart.o(.text.MX_USART2_UART_Init)
-    MemManage_Handler                        0x08005b15   Thumb Code     4  stm32f4xx_it.o(.text.MemManage_Handler)
-    N2DEG                                    0x08005b19   Thumb Code    28  mathfunc.o(.text.N2DEG)
-    NMI_Handler                              0x08005b35   Thumb Code     4  stm32f4xx_it.o(.text.NMI_Handler)
-    PID_Calculate                            0x08005ba5   Thumb Code   418  pid.o(.text.PID_Calculate)
-    PID_Init                                 0x08005d49   Thumb Code    86  pid.o(.text.PID_Init)
-    PID_Reset                                0x08005da1   Thumb Code    36  pid.o(.text.PID_Reset)
+    MX_CAN1_Init                             0x08005585   Thumb Code   296  can.o(.text.MX_CAN1_Init)
+    MX_CAN2_Init                             0x080056ad   Thumb Code   266  can.o(.text.MX_CAN2_Init)
+    MX_DMA_Init                              0x080057b9   Thumb Code   152  dma.o(.text.MX_DMA_Init)
+    MX_FREERTOS_Init                         0x08005851   Thumb Code   106  freertos.o(.text.MX_FREERTOS_Init)
+    MX_GPIO_Init                             0x080058bd   Thumb Code   168  gpio.o(.text.MX_GPIO_Init)
+    MX_TIM2_Init                             0x08005965   Thumb Code   150  tim.o(.text.MX_TIM2_Init)
+    MX_TIM3_Init                             0x080059fd   Thumb Code   154  tim.o(.text.MX_TIM3_Init)
+    MX_USART1_UART_Init                      0x08005a99   Thumb Code    64  usart.o(.text.MX_USART1_UART_Init)
+    MX_USART2_UART_Init                      0x08005ad9   Thumb Code    64  usart.o(.text.MX_USART2_UART_Init)
+    MemManage_Handler                        0x08005b19   Thumb Code     4  stm32f4xx_it.o(.text.MemManage_Handler)
+    N2DEG                                    0x08005b1d   Thumb Code    28  mathfunc.o(.text.N2DEG)
+    NMI_Handler                              0x08005b39   Thumb Code     4  stm32f4xx_it.o(.text.NMI_Handler)
+    PID_Calculate                            0x08005ba9   Thumb Code   418  pid.o(.text.PID_Calculate)
+    PID_Init                                 0x08005d4d   Thumb Code    86  pid.o(.text.PID_Init)
+    PID_Reset                                0x08005da5   Thumb Code    36  pid.o(.text.PID_Reset)
     PendSV_Handler                           0x08005dd1   Thumb Code   100  port.o(.text.PendSV_Handler)
     SVC_Handler                              0x08005e41   Thumb Code    36  port.o(.text.SVC_Handler)
     SysTick_Handler                          0x08005e75   Thumb Code    30  cmsis_os2.o(.text.SysTick_Handler)
@@ -5556,29 +5556,29 @@ Memory Map of the image
     0x080054d8   0x080054d8   0x0000000e   Code   RO         2188    .text.LedWaterTask  myostasks.o
     0x080054e6   0x080054e6   0x00000002   PAD
     0x080054e8   0x080054e8   0x0000009c   Code   RO         1867    .text.Led_Water     led.o
-    0x08005584   0x08005584   0x00000124   Code   RO           57    .text.MX_CAN1_Init  can.o
-    0x080056a8   0x080056a8   0x0000010a   Code   RO           59    .text.MX_CAN2_Init  can.o
-    0x080057b2   0x080057b2   0x00000002   PAD
-    0x080057b4   0x080057b4   0x00000098   Code   RO           75    .text.MX_DMA_Init   dma.o
-    0x0800584c   0x0800584c   0x0000006a   Code   RO           35    .text.MX_FREERTOS_Init  freertos.o
-    0x080058b6   0x080058b6   0x00000002   PAD
-    0x080058b8   0x080058b8   0x000000a8   Code   RO           27    .text.MX_GPIO_Init  gpio.o
-    0x08005960   0x08005960   0x00000096   Code   RO           83    .text.MX_TIM2_Init  tim.o
-    0x080059f6   0x080059f6   0x00000002   PAD
-    0x080059f8   0x080059f8   0x0000009a   Code   RO           85    .text.MX_TIM3_Init  tim.o
-    0x08005a92   0x08005a92   0x00000002   PAD
-    0x08005a94   0x08005a94   0x00000040   Code   RO          100    .text.MX_USART1_UART_Init  usart.o
-    0x08005ad4   0x08005ad4   0x00000040   Code   RO          102    .text.MX_USART2_UART_Init  usart.o
-    0x08005b14   0x08005b14   0x00000004   Code   RO          125    .text.MemManage_Handler  stm32f4xx_it.o
-    0x08005b18   0x08005b18   0x0000001c   Code   RO         1981    .text.N2DEG         mathfunc.o
-    0x08005b34   0x08005b34   0x00000004   Code   RO          121    .text.NMI_Handler   stm32f4xx_it.o
-    0x08005b38   0x08005b38   0x0000006c   Code   RO          885    .text.NVIC_EncodePriority  stm32f4xx_hal_cortex.o
-    0x08005ba4   0x08005ba4   0x000001a2   Code   RO         2020    .text.PID_Calculate  pid.o
-    0x08005d46   0x08005d46   0x00000002   PAD
-    0x08005d48   0x08005d48   0x00000056   Code   RO         2016    .text.PID_Init      pid.o
-    0x08005d9e   0x08005d9e   0x00000002   PAD
-    0x08005da0   0x08005da0   0x00000024   Code   RO         2018    .text.PID_Reset     pid.o
-    0x08005dc4   0x08005dc4   0x0000000c   PAD
+    0x08005584   0x08005584   0x00000128   Code   RO           57    .text.MX_CAN1_Init  can.o
+    0x080056ac   0x080056ac   0x0000010a   Code   RO           59    .text.MX_CAN2_Init  can.o
+    0x080057b6   0x080057b6   0x00000002   PAD
+    0x080057b8   0x080057b8   0x00000098   Code   RO           75    .text.MX_DMA_Init   dma.o
+    0x08005850   0x08005850   0x0000006a   Code   RO           35    .text.MX_FREERTOS_Init  freertos.o
+    0x080058ba   0x080058ba   0x00000002   PAD
+    0x080058bc   0x080058bc   0x000000a8   Code   RO           27    .text.MX_GPIO_Init  gpio.o
+    0x08005964   0x08005964   0x00000096   Code   RO           83    .text.MX_TIM2_Init  tim.o
+    0x080059fa   0x080059fa   0x00000002   PAD
+    0x080059fc   0x080059fc   0x0000009a   Code   RO           85    .text.MX_TIM3_Init  tim.o
+    0x08005a96   0x08005a96   0x00000002   PAD
+    0x08005a98   0x08005a98   0x00000040   Code   RO          100    .text.MX_USART1_UART_Init  usart.o
+    0x08005ad8   0x08005ad8   0x00000040   Code   RO          102    .text.MX_USART2_UART_Init  usart.o
+    0x08005b18   0x08005b18   0x00000004   Code   RO          125    .text.MemManage_Handler  stm32f4xx_it.o
+    0x08005b1c   0x08005b1c   0x0000001c   Code   RO         1981    .text.N2DEG         mathfunc.o
+    0x08005b38   0x08005b38   0x00000004   Code   RO          121    .text.NMI_Handler   stm32f4xx_it.o
+    0x08005b3c   0x08005b3c   0x0000006c   Code   RO          885    .text.NVIC_EncodePriority  stm32f4xx_hal_cortex.o
+    0x08005ba8   0x08005ba8   0x000001a2   Code   RO         2020    .text.PID_Calculate  pid.o
+    0x08005d4a   0x08005d4a   0x00000002   PAD
+    0x08005d4c   0x08005d4c   0x00000056   Code   RO         2016    .text.PID_Init      pid.o
+    0x08005da2   0x08005da2   0x00000002   PAD
+    0x08005da4   0x08005da4   0x00000024   Code   RO         2018    .text.PID_Reset     pid.o
+    0x08005dc8   0x08005dc8   0x00000008   PAD
     0x08005dd0   0x08005dd0   0x00000064   Code   RO         1840    .text.PendSV_Handler  port.o
     0x08005e34   0x08005e34   0x0000000c   PAD
     0x08005e40   0x08005e40   0x00000024   Code   RO         1824    .text.SVC_Handler   port.o
@@ -5919,7 +5919,7 @@ Image component sizes
 
        122          0          0          0          0       1253   beep.o
        596          0          0          0        319       2729   bluetooth.o
-       988          0          0          0         84       7066   can.o
+       992          0          0          0         84       7066   can.o
        302          0          0          0          0       3103   can_irqhandler.o
        574          0          0          0        593       4543   canqueue.o
        746          0          0          0       1724      34876   cmsis_os2.o
@@ -5963,7 +5963,7 @@ Image component sizes
     ----------------------------------------------------------------------
      41124        288        616         16      25712     329970   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       282         12          3          3         22          0   (incl. Padding)
+       278         12          3          3         22          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
