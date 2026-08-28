@@ -10,7 +10,7 @@
 #define Ground_Block_GetReady_Flag 2;
 #define Ground_Block_Fetch_Flag 3;
 #define Ground_Block_Lay_Flag 4;
-#define Ground_Block_reset 5;
+#define Ground_Block_reset_Flag 5;
 
 void Ground_Block_Enable(void);
 void Ground_Block_Disable(void);
