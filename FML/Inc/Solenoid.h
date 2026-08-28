@@ -11,6 +11,12 @@ typedef struct Solenoid_t
     uint8_t data_prve;
 } Solenoid_t;
 
+
+#define    Solenoid__USART_one 1;
+#define    Solenoid__USART_two 2 ;
+#define    Solenoid__USART_three 3;
+
+
 void solenoid_init(uint8_t usart_channel);
 void solenoid_on(uint8_t usart_channel, uint8_t cmd);
 #endif /* __SOLENOID_H */
