@@ -12,13 +12,13 @@ Solenoid_t solenoid_Channel1 = {0};
 Solenoid_t solenoid_Channel2 = {0};
 Solenoid_t solenoid_Channel3 = {0};
 
-
+Solenoid_USART_channel_t solenoid_USART_channel ;
 /*初始化电磁阀通道，配置其GPIO端口和数据引脚。
 solenoid：指向电磁阀结构体的指针，用于存储配置信息
 gpio_port：GPIO端口，用于电磁阀控制
 gpio_pin_sda：SDA数据引脚编号
 gpio_pin_clk：时钟引脚编号*/
-void solenoid_channel_init(Solenoid_t *solenoid, GPIO_TypeDef *gpio_port,
+static oid solenoid_channel_init(Solenoid_t *solenoid, GPIO_TypeDef *gpio_port,
                            uint16_t gpio_pin_sda, uint16_t gpio_pin_clk)
 {
     solenoid->gpio_port = gpio_port;
@@ -28,12 +28,13 @@ void solenoid_channel_init(Solenoid_t *solenoid, GPIO_TypeDef *gpio_port,
 }
 
 // usart_channel=串口号 不需要在cube中配置 直接调用即可
+//初始化指定通道的电磁阀，配置对应的GPIO引脚为推挽输出模式，并关闭电磁阀
 void solenoid_init(uint8_t usart_channel)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
     switch (usart_channel)
     {
-    case 1:
+    case Solenoid__USART_one:
         solenoid_channel_init(&solenoid_Channel1, GPIOA, GPIO_PIN_9, GPIO_PIN_10);
         __HAL_RCC_GPIOA_CLK_ENABLE();
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9 | GPIO_PIN_10, GPIO_PIN_RESET);
@@ -43,7 +44,7 @@ void solenoid_init(uint8_t usart_channel)
         GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
         HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
         break;
-    case 2:
+    case Solenoid__USART_two:
         solenoid_channel_init(&solenoid_Channel2, GPIOA, GPIO_PIN_2, GPIO_PIN_3);
         __HAL_RCC_GPIOA_CLK_ENABLE();
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2 | GPIO_PIN_3, GPIO_PIN_RESET);
@@ -53,7 +54,7 @@ void solenoid_init(uint8_t usart_channel)
         GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
         HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
         break;
-    case 3:
+    case Solenoid__USART_three:
         solenoid_channel_init(&solenoid_Channel3, GPIOC, GPIO_PIN_10, GPIO_PIN_11);
         __HAL_RCC_GPIOC_CLK_ENABLE();
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10 | GPIO_PIN_11, GPIO_PIN_RESET); /* 将PC10和PC11引脚设置为低电平 */
