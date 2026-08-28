@@ -6,9 +6,7 @@ uint8_t solenoid_enable = 0;  // 夹爪使能状态
 volatile uint8_t gb_cmd = 0;
 static uint8_t gb_data[8];
 
-uint8_t solenoid_enable = 0; // 夹爪使能状态
-volatile uint8_t gb_cmd = 0;   
-static uint8_t gb_data[8];    
+ 
 
 //使能电机控制，设置为失能模式
 void Ground_Block_Enable()
@@ -37,7 +35,7 @@ void Ground_Block_reset()
     // 下降高度，打开夹爪
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
     DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
-    solenoid_on(3, 0x03);
+    solenoid_on(3, 0x07);
     solenoid_is_open = 1;
     osDelay(1000);
 }
@@ -69,7 +67,7 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
     switch (Rxdata[0])
     {
     case 1:
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -100.0f;
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -150.0f;
         osDelay(1500);
         if (solenoid_is_open == 1)
         {
@@ -77,12 +75,12 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
             solenoid_is_open = 0;
             osDelay(1000);
         }
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -100.0f;
-        osDelay(500);
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -300.0f;
+        osDelay(1000);
 
         break;
     case 2:
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -250.0f;
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -600.0f;
         osDelay(1500);
         if (solenoid_is_open == 1)
         {
@@ -90,8 +88,8 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
             solenoid_is_open = 0;
             osDelay(1000);
         }
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -250.0f;
-        osDelay(500);
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -750.0f;
+        osDelay(1000);
         break;
     default:
         break;
@@ -103,21 +101,21 @@ void Ground_Block_Lay(uint8_t *Rxdata)
     switch (Rxdata[0])
     {
     case 1:
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -200.0f;
         osDelay(2000);
         if (solenoid_is_open == 0)
         {
-            solenoid_on(3, 0x03); // 夹爪张开
+            solenoid_on(3, 0x07); // 夹爪张开
             solenoid_is_open = 1;
             osDelay(1000);
         }
         break;
     case 2:
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -650.0f;
         osDelay(2000);
         if (solenoid_is_open == 0)
         {
-            solenoid_on(3, 0x03); // 夹爪张开
+            solenoid_on(3, 0x07); // 夹爪张开
             solenoid_is_open = 1;
             osDelay(1000);
         }

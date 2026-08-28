@@ -12,13 +12,12 @@ Solenoid_t solenoid_Channel1 = {0};
 Solenoid_t solenoid_Channel2 = {0};
 Solenoid_t solenoid_Channel3 = {0};
 
-Solenoid_USART_channel_t solenoid_USART_channel ;
 /*初始化电磁阀通道，配置其GPIO端口和数据引脚。
 solenoid：指向电磁阀结构体的指针，用于存储配置信息
 gpio_port：GPIO端口，用于电磁阀控制
 gpio_pin_sda：SDA数据引脚编号
 gpio_pin_clk：时钟引脚编号*/
-static oid solenoid_channel_init(Solenoid_t *solenoid, GPIO_TypeDef *gpio_port,
+static void solenoid_channel_init(Solenoid_t *solenoid, GPIO_TypeDef *gpio_port,
                            uint16_t gpio_pin_sda, uint16_t gpio_pin_clk)
 {
     solenoid->gpio_port = gpio_port;
