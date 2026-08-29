@@ -23,7 +23,6 @@ void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata);
 void Ground_Block_Process(void);
 
 
-void Ground_Block_Test(void);
 
 #endif
 
