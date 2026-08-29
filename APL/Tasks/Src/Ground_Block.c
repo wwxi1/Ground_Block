@@ -52,8 +52,10 @@ void Ground_Block_close()
 
 void Ground_Block_GetReady() // 预取大地块
 {
-    // 杆推出，夹爪张开
-    solenoid_on(3, 0x7);
+    // 杆先推出，延时，夹爪张开
+    solenoid_on(3, 0x04);
+    osDelay(1000);
+    solenoid_on(3, 0x07);
     solenoid_is_open = 1;
     osDelay(1000);
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
