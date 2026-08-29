@@ -140,7 +140,6 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-  Ground_Block_Test();
   }
   /* USER CODE END 3 */
 }
