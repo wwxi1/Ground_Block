@@ -259,8 +259,10 @@ void DJmotor_CurrentTransmit(DJMotorPointer motor)
 
     if (motor->ID <= 4U) /* 根据电机ID判断使用哪个标准ID */
     {
-        tx_header.StdId = 0x200U; /* 当电机ID小于等于4时，使用0x200作为标准ID */
-        tag = (uint8_t)((motor->ID - 1U) * 2U); /* 计算数据标签位置，每个电机占用2个字节 */
+    //     tx_header.StdId = 0x200U; /* 当电机ID小于等于4时，使用0x200作为标准ID */
+    //     tag = (uint8_t)((motor->ID - 1U) * 2U); /* 计算数据标签位置，每个电机占用2个字节 */
+        return;
+
     }
     else
     {
