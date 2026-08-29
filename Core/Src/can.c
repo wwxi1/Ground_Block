@@ -82,7 +82,7 @@ void MX_CAN1_Init(void)
   //0x000-0x7FF 11位标准帧
   //0x00000000-0x1FFFFFFF 29位扩展帧
   uint32_t filter_id1   = (0x01010301 << 3) | CAN_ID_EXT;
-  uint32_t filter_mask1 = (0x1FFFFFF0 << 3) | CAN_ID_EXT;  // 29 位 ID + IDE 位全比较
+  uint32_t filter_mask1 = (0x1FFFFF00 << 3) | CAN_ID_EXT;  // 29 位 ID + IDE 位全比较
   CAN_FilterConfig.FilterIdHigh = (filter_id1 >> 16);                   // 基准高位 FR0高16位
   CAN_FilterConfig.FilterMaskIdHigh = (filter_mask1 >>16);             // 掩码高位 FR1高16位
   CAN_FilterConfig.FilterIdLow = filter_id1;                // 基准低位 FR0低16位

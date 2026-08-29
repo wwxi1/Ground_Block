@@ -127,7 +127,7 @@ void Ground_Block_Lay(uint8_t *Rxdata)
 
 void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
 {
-    if (RxHeader.ExtId == 0x01010301)
+    if (RxHeader.ExtId == 0x01010301 && Rxdata[0] == 0x4D)
     {
         Ground_Block_Enable();
         return;
@@ -135,13 +135,13 @@ void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
     else if (solenoid_enable == 1 && DJmotor[GROUND_BLOCK_dji_num].Begin == 1)
     {
         memcpy(gb_data, Rxdata, 8);
-        if (RxHeader.ExtId == 0x01010302)
+        if (RxHeader.ExtId == 0x01010302 && Rxdata[0] == 0x50)
             gb_cmd = Ground_Block_GetReady_Flag;
-        else if (RxHeader.ExtId == 0x01010303)
+        else if (RxHeader.ExtId == 0x01010303 && Rxdata[0] == 0x47)
             gb_cmd = Ground_Block_Fetch_Flag;
-        else if (RxHeader.ExtId == 0x01010304)
+        else if (RxHeader.ExtId == 0x01010304 && Rxdata[0] == 0X50)
             gb_cmd = Ground_Block_Lay_Flag;
-        else if (RxHeader.ExtId == 0x010103FF)
+        else if (RxHeader.ExtId == 0x010103FF && Rxdata[0] == 0x52)
             gb_cmd = Ground_Block_reset_Flag;
     }
 }
