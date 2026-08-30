@@ -153,7 +153,7 @@ void MX_CAN2_Init(void)
   CAN_FilterConfig.FilterActivation = ENABLE;                     // 激活过滤器
   CAN_FilterConfig.SlaveStartFilterBank = 14;                     // CAN1 CAN2的过滤器分割线，0-13给CAN1，14-27给CAN2
   CAN_FilterConfig.FilterBank = 15;                                // 使用第15个筛选器组
-  CAN_FilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;           // 位宽
+  CAN_FilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;           // 位宽
   CAN_FilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;            // 模式（列表/掩码）
   CAN_FilterConfig.FilterFIFOAssignment = CAN_FILTER_FIFO1;       // 用哪个FIFO的信箱
   //0x000-0x7FF 11位标准帧

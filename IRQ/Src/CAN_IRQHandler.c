@@ -28,7 +28,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
         if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
         {
-            #if USE_DJ && (MOTOR_DJI_CAN_BUS == 0U)
+            #if USE_DJ && (MOTOR_DJI_CAN_BUS == 1U)
             DJmotor_Receive(RxHeader, RxData);
             #endif
         }
