@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Ground_Block\Ground_Block.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Ground_Block\Ground_Block.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Sat Aug 29 19:55:56 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Sat Aug 29 22:29:17 2026
 <BR><P>
 <H3>Maximum Stack Usage =        348 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -838,10 +838,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Process
 </UL>
 
-<P><STRONG><a name="[a3]"></a>Ground_Block_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, ground_block.o(.text.Ground_Block_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Ground_Block_Init
+<P><STRONG><a name="[a3]"></a>Ground_Block_Init</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, ground_block.o(.text.Ground_Block_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Ground_Block_Init &rArr; solenoid_on &rArr; register_updata &rArr; HAL_GPIO_WritePin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Disable
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1884,7 +1885,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;register_updata
 </UL>
-<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_init
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Init
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_init
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_GetReady

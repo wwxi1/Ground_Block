@@ -25,7 +25,9 @@ void Ground_Block_Disable()
 // 初始化
 void Ground_Block_Init()
 {
+     solenoid_on(3, 0x00);
     Ground_Block_Disable();
+
 }
 
 void Ground_Block_reset()
@@ -33,7 +35,7 @@ void Ground_Block_reset()
     // 下降高度，打开夹爪
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
     DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
-    solenoid_on(3, 0x07);
+     solenoid_on(3, 0x07);
     solenoid_is_open = 1;
     osDelay(1000);
 }
@@ -44,18 +46,18 @@ void Ground_Block_close()
 
     DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
     osDelay(4000);
-    solenoid_on(3, 0x4);
+     solenoid_on(3, 0x4);
     solenoid_is_open = 0;
-    solenoid_on(3, 0x00);
+     solenoid_on(3, 0x00);
     osDelay(1000);
 }
 
 void Ground_Block_GetReady() // 预取大地块
 {
     // 杆先推出，延时，夹爪张开
-    solenoid_on(3, 0x04);
+     solenoid_on(3, 0x04);
     osDelay(1000);
-    solenoid_on(3, 0x07);
+     solenoid_on(3, 0x07);
     solenoid_is_open = 1;
     osDelay(1000);
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
@@ -71,11 +73,11 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
         osDelay(1500);
         if (solenoid_is_open == 1)
         {
-            solenoid_on(3, 0x04); // 夹爪闭合
+             solenoid_on(3, 0x04); // 夹爪闭合
             solenoid_is_open = 0;
             osDelay(1000);
         }
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -300.0f;
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -450.0f;
         osDelay(1000);
 
         break;
@@ -84,7 +86,7 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
         osDelay(1500);
         if (solenoid_is_open == 1)
         {
-            solenoid_on(3, 0x04); // 夹爪闭合
+             solenoid_on(3, 0x04); // 夹爪闭合
             solenoid_is_open = 0;
             osDelay(1000);
         }
@@ -105,7 +107,7 @@ void Ground_Block_Lay(uint8_t *Rxdata)
         osDelay(2000);
         if (solenoid_is_open == 0)
         {
-            solenoid_on(3, 0x07); // 夹爪张开
+             solenoid_on(3, 0x07); // 夹爪张开
             solenoid_is_open = 1;
             osDelay(1000);
         }
@@ -115,7 +117,7 @@ void Ground_Block_Lay(uint8_t *Rxdata)
         osDelay(2000);
         if (solenoid_is_open == 0)
         {
-            solenoid_on(3, 0x07); // 夹爪张开
+             solenoid_on(3, 0x07); // 夹爪张开
             solenoid_is_open = 1;
             osDelay(1000);
         }
