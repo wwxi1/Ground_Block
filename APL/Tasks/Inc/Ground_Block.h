@@ -4,6 +4,7 @@
 #include "solenoid.h"
 #include "DJmotor.h"
 #include "cmsis_os.h"
+#include "Beep.h"
 
 #define GROUND_BLOCK_dji_num 4
 
