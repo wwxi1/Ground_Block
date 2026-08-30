@@ -39,13 +39,17 @@ void Ground_Block_Init()
 void Ground_Block_reset()
 {
     // 下降高度，打开夹爪
+
     BEEP_ON();
-    DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
-    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
-     solenoid_on(3, 0x07);
-    solenoid_is_open = 1;
-    osDelay(1000);
-    BEEP_OFF();
+    if (solenoid_is_open == 0)
+        {
+            solenoid_on(3, 0x07); // 夹爪张开
+            solenoid_is_open = 1;
+            osDelay(2000);
+        }
+    __set_FAULTMASK(1);                  // 关闭所有的中断，确保执行复位时不被中断打断
+    NVIC_SystemReset();                   // 系统软件复位，配置好的外设寄存器也一起复位,此处内含了beep_off
+    
 }
 
 void Ground_Block_close()
@@ -63,11 +67,12 @@ void Ground_Block_close()
 void Ground_Block_GetReady() // 预取大地块
 {
     // 杆先推出，延时，夹爪张开
-     solenoid_on(3, 0x04);
+    solenoid_on(3, 0x04);
     osDelay(1000);
-     solenoid_on(3, 0x07);
+    solenoid_on(3, 0x07);
     solenoid_is_open = 1;
-    osDelay(1000);
+    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -150.0f;
+    osDelay(500);
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
 }
 
