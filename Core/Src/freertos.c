@@ -66,7 +66,7 @@ osThreadId_t Ground_BlockHandle;
 const osThreadAttr_t Ground_Block_attributes = {
   .name = "Ground_Block",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityLow1,
 };
 
 /* Private function prototypes -----------------------------------------------*/

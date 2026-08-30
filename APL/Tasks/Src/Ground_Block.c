@@ -12,6 +12,9 @@ void Ground_Block_Enable()
     solenoid_enable = 1;
     DJmotor[GROUND_BLOCK_dji_num].Begin = 1;
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Disable;
+    BEEP_ON();
+    osDelay(300);
+    BEEP_OFF();
 }
 
 // 失能电机控制
@@ -20,6 +23,9 @@ void Ground_Block_Disable()
     solenoid_enable = 0;                                 // 关闭电磁阀使能
     DJmotor[GROUND_BLOCK_dji_num].Begin = 0;             // 停止电机运行
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Disable; // 设置电机为禁用模式
+    BEEP_ON();
+    osDelay(300);
+    BEEP_OFF();
 }
 
 // 初始化
@@ -33,11 +39,13 @@ void Ground_Block_Init()
 void Ground_Block_reset()
 {
     // 下降高度，打开夹爪
+    BEEP_ON();
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
     DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
      solenoid_on(3, 0x07);
     solenoid_is_open = 1;
     osDelay(1000);
+    BEEP_OFF();
 }
 
 void Ground_Block_close()

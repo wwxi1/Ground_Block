@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Ground_Block\Ground_Block.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Ground_Block\Ground_Block.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Sat Aug 29 22:29:17 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Sun Aug 30 08:32:02 2026
 <BR><P>
 <H3>Maximum Stack Usage =        348 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -593,28 +593,28 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f405xx.o(RESET)
 </UL>
 <P><STRONG><a name="[1e]"></a>CAN1_RX0_IRQHandler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, stm32f4xx_it.o(.text.CAN1_RX0_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = CAN1_RX0_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo1MsgPendingCallback &rArr; ZdriveReceive &rArr; Zdrive_IsOurs &rArr; Zdrive_IdOnBus
+<BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = CAN1_RX0_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo1MsgPendingCallback &rArr; Ground_Block_Func &rArr; Ground_Block_Disable &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f405xx.o(RESET)
 </UL>
 <P><STRONG><a name="[1f]"></a>CAN1_RX1_IRQHandler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, stm32f4xx_it.o(.text.CAN1_RX1_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = CAN1_RX1_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo1MsgPendingCallback &rArr; ZdriveReceive &rArr; Zdrive_IsOurs &rArr; Zdrive_IdOnBus
+<BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = CAN1_RX1_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo1MsgPendingCallback &rArr; Ground_Block_Func &rArr; Ground_Block_Disable &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f405xx.o(RESET)
 </UL>
 <P><STRONG><a name="[48]"></a>CAN2_RX0_IRQHandler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, stm32f4xx_it.o(.text.CAN2_RX0_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = CAN2_RX0_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo1MsgPendingCallback &rArr; ZdriveReceive &rArr; Zdrive_IsOurs &rArr; Zdrive_IdOnBus
+<BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = CAN2_RX0_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo1MsgPendingCallback &rArr; Ground_Block_Func &rArr; Ground_Block_Disable &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f405xx.o(RESET)
 </UL>
 <P><STRONG><a name="[49]"></a>CAN2_RX1_IRQHandler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, stm32f4xx_it.o(.text.CAN2_RX1_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = CAN2_RX1_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo1MsgPendingCallback &rArr; ZdriveReceive &rArr; Zdrive_IsOurs &rArr; Zdrive_IdOnBus
+<BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = CAN2_RX1_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo1MsgPendingCallback &rArr; Ground_Block_Func &rArr; Ground_Block_Disable &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_IRQHandler
 </UL>
@@ -802,29 +802,39 @@ Global Symbols
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[a0]"></a>Ground_Block_Disable</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, ground_block.o(.text.Ground_Block_Disable))
-<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Init
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
+<P><STRONG><a name="[9d]"></a>Ground_Block_Disable</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, ground_block.o(.text.Ground_Block_Disable))
+<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = Ground_Block_Disable &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
+</UL>
+<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Init
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
 </UL>
 
-<P><STRONG><a name="[a1]"></a>Ground_Block_Enable</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, ground_block.o(.text.Ground_Block_Enable))
-<BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
+<P><STRONG><a name="[9e]"></a>Ground_Block_Enable</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, ground_block.o(.text.Ground_Block_Enable))
+<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = Ground_Block_Enable &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
+</UL>
+<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
 </UL>
 
-<P><STRONG><a name="[9d]"></a>Ground_Block_Fetch</STRONG> (Thumb, 236 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_Fetch))
+<P><STRONG><a name="[9f]"></a>Ground_Block_Fetch</STRONG> (Thumb, 236 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_Fetch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = Ground_Block_Fetch &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Process
 </UL>
 
-<P><STRONG><a name="[9f]"></a>Ground_Block_Func</STRONG> (Thumb, 322 bytes, Stack size 48 bytes, ground_block.o(.text.Ground_Block_Func))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Ground_Block_Func
+<P><STRONG><a name="[a1]"></a>Ground_Block_Func</STRONG> (Thumb, 322 bytes, Stack size 48 bytes, ground_block.o(.text.Ground_Block_Func))
+<BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = Ground_Block_Func &rArr; Ground_Block_Disable &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Disable
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Enable
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Disable
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Enable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo1MsgPendingCallback
 </UL>
@@ -833,16 +843,16 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = Ground_Block_GetReady &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Process
 </UL>
 
 <P><STRONG><a name="[a3]"></a>Ground_Block_Init</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, ground_block.o(.text.Ground_Block_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Ground_Block_Init &rArr; solenoid_on &rArr; register_updata &rArr; HAL_GPIO_WritePin
+<BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = Ground_Block_Init &rArr; Ground_Block_Disable &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Disable
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Disable
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -851,16 +861,16 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = Ground_Block_Lay &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Process
 </UL>
 
 <P><STRONG><a name="[a5]"></a>Ground_Block_Process</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_Process))
-<BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = Ground_Block_Process &rArr; Ground_Block_Lay &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
+<BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = Ground_Block_Process &rArr; Ground_Block_reset &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_GetReady
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 </UL>
@@ -868,17 +878,18 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5d]"></a>Ground_Block_Task</STRONG> (Thumb, 14 bytes, Stack size 16 bytes, myostasks.o(.text.Ground_Block_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = Ground_Block_Task &rArr; Ground_Block_Process &rArr; Ground_Block_Lay &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
+<BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = Ground_Block_Task &rArr; Ground_Block_Process &rArr; Ground_Block_reset &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Process
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.text.MX_FREERTOS_Init)
 </UL>
-<P><STRONG><a name="[a6]"></a>Ground_Block_reset</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, ground_block.o(.text.Ground_Block_reset))
-<BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = Ground_Block_reset &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
+<P><STRONG><a name="[a6]"></a>Ground_Block_reset</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, ground_block.o(.text.Ground_Block_reset))
+<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = Ground_Block_reset &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Process
 </UL>
@@ -918,7 +929,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[80]"></a>HAL_CAN_IRQHandler</STRONG> (Thumb, 1010 bytes, Stack size 48 bytes, stm32f4xx_hal_can.o(.text.HAL_CAN_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo1MsgPendingCallback &rArr; ZdriveReceive &rArr; Zdrive_IsOurs &rArr; Zdrive_IdOnBus
+<BR><BR>[Stack]<UL><LI>Max Depth = 316<LI>Call Chain = HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo1MsgPendingCallback &rArr; Ground_Block_Func &rArr; Ground_Block_Disable &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_ErrorCallback
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_WakeUpFromRxMsgCallback
@@ -982,11 +993,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[b0]"></a>HAL_CAN_RxFifo1MsgPendingCallback</STRONG> (Thumb, 174 bytes, Stack size 80 bytes, can_irqhandler.o(.text.HAL_CAN_RxFifo1MsgPendingCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = HAL_CAN_RxFifo1MsgPendingCallback &rArr; ZdriveReceive &rArr; Zdrive_IsOurs &rArr; Zdrive_IdOnBus
+<BR><BR>[Stack]<UL><LI>Max Depth = 268<LI>Call Chain = HAL_CAN_RxFifo1MsgPendingCallback &rArr; Ground_Block_Func &rArr; Ground_Block_Disable &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_GetRxMessage
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ZdriveReceive
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Func
 </UL>
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_IRQHandler
 </UL>
@@ -1113,6 +1124,9 @@ Global Symbols
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Beep_Init
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Water
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Disable
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Enable
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BeepAlarmTask
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;register_updata
 </UL>
@@ -1814,9 +1828,11 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Water
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_GetReady
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Disable
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Enable
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BeepAlarmTask
 </UL>
 
@@ -1866,7 +1882,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
+<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
 </UL>
 
 <P><STRONG><a name="[122]"></a>solenoid_init</STRONG> (Thumb, 382 bytes, Stack size 88 bytes, solenoid.o(.text.solenoid_init))
@@ -1874,13 +1890,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
 <LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_channel_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9e]"></a>solenoid_on</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, solenoid.o(.text.solenoid_on))
+<P><STRONG><a name="[a0]"></a>solenoid_on</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, solenoid.o(.text.solenoid_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = solenoid_on &rArr; register_updata &rArr; HAL_GPIO_WritePin
 </UL>
 <BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;register_updata
@@ -1888,7 +1904,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Init
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_init
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_GetReady
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 </UL>
