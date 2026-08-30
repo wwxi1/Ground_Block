@@ -34,7 +34,7 @@ extern "C"
 /* DJI M2006 / M3508                                                    */
 /* ------------------------------------------------------------------ */
 #define MOTOR_DJI_COUNT 8U  /* 必须为 4 或 8(DJI CAN 打包要求) */
-#define MOTOR_DJI_CAN_BUS 0 /* 0=CAN1,1=CAN2 */
+#define MOTOR_DJI_CAN_BUS 1 /* 0=CAN1,1=CAN2 */
 
 #define MOTOR_M2006_COUNT 0U
 #define MOTOR_M3508_COUNT 8U

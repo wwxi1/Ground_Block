@@ -71,7 +71,7 @@ void Ground_Block_GetReady() // 预取大地块
     osDelay(1000);
     solenoid_on(3, 0x07);
     solenoid_is_open = 1;
-    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -150.0f;
+    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -15.0f;
     osDelay(500);
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
 }
@@ -82,8 +82,8 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
     switch (Rxdata[1])
     {
     case 1:
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -150.0f;
-        osDelay(1500);
+        // DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -150.0f;
+        // osDelay(1500);
         if (solenoid_is_open == 1)
         {
              solenoid_on(3, 0x04); // 夹爪闭合
