@@ -31,9 +31,8 @@ void Ground_Block_Disable()
 // 初始化
 void Ground_Block_Init()
 {
-     solenoid_on(3, 0x00);
+    solenoid_on(3, 0x00);
     Ground_Block_Disable();
-
 }
 
 void Ground_Block_reset()
@@ -42,14 +41,13 @@ void Ground_Block_reset()
 
     BEEP_ON();
     if (solenoid_is_open == 0)
-        {
-            solenoid_on(3, 0x07); // 夹爪张开
-            solenoid_is_open = 1;
-            osDelay(2000);
-        }
-    __set_FAULTMASK(1);                  // 关闭所有的中断，确保执行复位时不被中断打断
-    NVIC_SystemReset();                   // 系统软件复位，配置好的外设寄存器也一起复位,此处内含了beep_off
-    
+    {
+        solenoid_on(3, 0x07); // 夹爪张开
+        solenoid_is_open = 1;
+        osDelay(2000);
+    }
+    __set_FAULTMASK(1); // 关闭所有的中断，确保执行复位时不被中断打断
+    NVIC_SystemReset(); // 系统软件复位，配置好的外设寄存器也一起复位,此处内含了beep_off
 }
 
 void Ground_Block_close()
@@ -58,9 +56,9 @@ void Ground_Block_close()
 
     DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
     osDelay(4000);
-     solenoid_on(3, 0x4);
+    solenoid_on(3, 0x4);
     solenoid_is_open = 0;
-     solenoid_on(3, 0x00);
+    solenoid_on(3, 0x00);
     osDelay(1000);
 }
 
@@ -86,7 +84,7 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
         // osDelay(1500);
         if (solenoid_is_open == 1)
         {
-             solenoid_on(3, 0x04); // 夹爪闭合
+            solenoid_on(3, 0x04); // 夹爪闭合
             solenoid_is_open = 0;
             osDelay(1000);
         }
@@ -99,7 +97,7 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
         osDelay(1500);
         if (solenoid_is_open == 1)
         {
-             solenoid_on(3, 0x04); // 夹爪闭合
+            solenoid_on(3, 0x04); // 夹爪闭合
             solenoid_is_open = 0;
             osDelay(1000);
         }
@@ -120,7 +118,7 @@ void Ground_Block_Lay(uint8_t *Rxdata)
         osDelay(2000);
         if (solenoid_is_open == 0)
         {
-             solenoid_on(3, 0x07); // 夹爪张开
+            solenoid_on(3, 0x07); // 夹爪张开
             solenoid_is_open = 1;
             osDelay(1000);
         }
@@ -130,7 +128,7 @@ void Ground_Block_Lay(uint8_t *Rxdata)
         osDelay(2000);
         if (solenoid_is_open == 0)
         {
-             solenoid_on(3, 0x07); // 夹爪张开
+            solenoid_on(3, 0x07); // 夹爪张开
             solenoid_is_open = 1;
             osDelay(1000);
         }
@@ -142,22 +140,22 @@ void Ground_Block_Lay(uint8_t *Rxdata)
 
 void Ground_Block_Split()
 {
-      if (solenoid_is_open == 0)
-        {
-             solenoid_on(3, 0x07); // 夹爪张开
-            solenoid_is_open = 1;
-            osDelay(500);
-        }     
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -720.0f;
-        osDelay(1000);
-        if (solenoid_is_open == 1)
-        {
-             solenoid_on(3, 0x04); // 夹爪闭合
-            solenoid_is_open = 0;
-            osDelay(500);
-        }
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1180.0f;
-        osDelay(1000);
+    if (solenoid_is_open == 0)
+    {
+        solenoid_on(3, 0x07); // 夹爪张开
+        solenoid_is_open = 1;
+        osDelay(500);
+    }
+    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -720.0f;
+    osDelay(1000);
+    if (solenoid_is_open == 1)
+    {
+        solenoid_on(3, 0x04); // 夹爪闭合
+        solenoid_is_open = 0;
+        osDelay(500);
+    }
+    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1180.0f;
+    osDelay(1000);
 }
 
 void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
@@ -167,12 +165,16 @@ void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
         switch (Rxdata[1])
         {
         case 0:
-            Ground_Block_Disable();     // 失能
+            Ground_Block_Disable(); // 失能
             return;
         case 1:
-            Ground_Block_Enable();      // 使能
+            Ground_Block_Enable(); // 使能
             return;
         }
+    }
+    else if (RxHeader.ExtId == 0x010103FF && Rxdata[0] == 0x52)
+    {
+        gb_cmd = Ground_Block_reset_Flag;
     }
     else if (solenoid_enable == 1 && DJmotor[GROUND_BLOCK_dji_num].Begin == 1)
     {
@@ -184,10 +186,7 @@ void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
         else if (RxHeader.ExtId == 0x01010304 && Rxdata[0] == 0X50)
             gb_cmd = Ground_Block_Lay_Flag;
         else if (RxHeader.ExtId == 0x01010305 && Rxdata[0] == 0x53)
-                gb_cmd = Ground_Block_Split_Flag;
-        else if (RxHeader.ExtId == 0x010103FF && Rxdata[0] == 0x52)
-            gb_cmd = Ground_Block_reset_Flag;
-        
+            gb_cmd = Ground_Block_Split_Flag;
     }
 }
 
@@ -220,4 +219,3 @@ void Ground_Block_Process(void)
         break;
     }
 }
-
