@@ -44,7 +44,9 @@ void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan)
     {
         if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData) == HAL_OK)
         {
-            Ground_Block_Func(RxHeader, RxData);
+            #if USE_ZMDR
+            ZdriveReceive(RxHeader, RxData, 1U);
+            #endif
         }
         
     }
@@ -52,9 +54,7 @@ void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan)
     {
         if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData) == HAL_OK)
         {
-           #if USE_ZMDR
-            ZdriveReceive(RxHeader, RxData, 1U);
-            #endif
+           Ground_Block_Func(RxHeader, RxData);
         }
     }
 }
