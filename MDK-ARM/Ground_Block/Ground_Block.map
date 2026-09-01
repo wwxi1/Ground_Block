@@ -2133,8 +2133,8 @@ Section Cross References
     can_irqhandler.o(.text.HAL_CAN_RxFifo0MsgPendingCallback) refers to djmotor.o(.text.DJmotor_Receive) for DJmotor_Receive
     can_irqhandler.o(.ARM.exidx.text.HAL_CAN_RxFifo0MsgPendingCallback) refers to can_irqhandler.o(.text.HAL_CAN_RxFifo0MsgPendingCallback) for [Anonymous Symbol]
     can_irqhandler.o(.text.HAL_CAN_RxFifo1MsgPendingCallback) refers to stm32f4xx_hal_can.o(.text.HAL_CAN_GetRxMessage) for HAL_CAN_GetRxMessage
-    can_irqhandler.o(.text.HAL_CAN_RxFifo1MsgPendingCallback) refers to ground_block.o(.text.Ground_Block_Func) for Ground_Block_Func
     can_irqhandler.o(.text.HAL_CAN_RxFifo1MsgPendingCallback) refers to zdrive.o(.text.ZdriveReceive) for ZdriveReceive
+    can_irqhandler.o(.text.HAL_CAN_RxFifo1MsgPendingCallback) refers to ground_block.o(.text.Ground_Block_Func) for Ground_Block_Func
     can_irqhandler.o(.ARM.exidx.text.HAL_CAN_RxFifo1MsgPendingCallback) refers to can_irqhandler.o(.text.HAL_CAN_RxFifo1MsgPendingCallback) for [Anonymous Symbol]
     bluetooth.o(.text.Deal_RxPack) refers to bluetooth.o(.bss.PackMsg) for PackMsg
     bluetooth.o(.text.Deal_RxPack) refers to bluetooth.o(.bss.RxMsgPack) for RxMsgPack
@@ -2272,7 +2272,7 @@ Section Cross References
     djmotor.o(.text.DJmotor_CurrentTransmit) refers to djmotor.o(.text.DJmotor_GetCanHandle) for DJmotor_GetCanHandle
     djmotor.o(.text.DJmotor_CurrentTransmit) refers to stm32f4xx_hal_can.o(.text.HAL_CAN_AddTxMessage) for HAL_CAN_AddTxMessage
     djmotor.o(.ARM.exidx.text.DJmotor_CurrentTransmit) refers to djmotor.o(.text.DJmotor_CurrentTransmit) for [Anonymous Symbol]
-    djmotor.o(.text.DJmotor_GetCanHandle) refers to can.o(.bss.hcan1) for hcan1
+    djmotor.o(.text.DJmotor_GetCanHandle) refers to can.o(.bss.hcan2) for hcan2
     djmotor.o(.ARM.exidx.text.DJmotor_GetCanHandle) refers to djmotor.o(.text.DJmotor_GetCanHandle) for [Anonymous Symbol]
     djmotor.o(.text.DJmotor_SpeedMode) refers to djmotor.o(.text.ClampPeak) for ClampPeak
     djmotor.o(.text.DJmotor_SpeedMode) refers to djmotor.o(.text.Get_Total_Ratio) for Get_Total_Ratio
@@ -5918,7 +5918,7 @@ Image component sizes
        122          0          0          0          0       1260   beep.o
        596          0          0          0        319       2736   bluetooth.o
       1024          0          0          0         84       7125   can.o
-       302          0          0          0          0       3110   can_irqhandler.o
+       302          0          0          0          0       3112   can_irqhandler.o
        574          0          0          0        593       4550   canqueue.o
        746          0          0          0       1724      34876   cmsis_os2.o
       3058         34          0          0       2152       9174   djmotor.o
@@ -5959,7 +5959,7 @@ Image component sizes
       2832        166          1          0        960      10775   zdrive.o
 
     ----------------------------------------------------------------------
-     41416        290        616         16      26776     331520   Object Totals
+     41416        290        616         16      26776     331522   Object Totals
          0          0         32          0          0          0   (incl. Generated)
        268         12          3          3         16          0   (incl. Padding)
 
@@ -6025,8 +6025,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     43160        330        616         16      26872     331800   Grand Totals
-     43160        330        616         16      26872     331800   ELF Image Totals
+     43160        330        616         16      26872     331802   Grand Totals
+     43160        330        616         16      26872     331802   ELF Image Totals
      43160        330        616         16          0          0   ROM Totals
 
 ==============================================================================

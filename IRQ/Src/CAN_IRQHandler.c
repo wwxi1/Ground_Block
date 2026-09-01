@@ -20,7 +20,9 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         // 从 FIFO 0 把数据捞出来，存到 RxData 数组里
         if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
         {
-           //
+           #if USE_DJ && (MOTOR_DJI_CAN_BUS == 0U)
+            DJmotor_Receive(RxHeader, RxData);
+            #endif
         }
     }
     else if (hcan->Instance == CAN2)
@@ -28,11 +30,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
         if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
         {
-            
-            #if USE_DJ && (MOTOR_DJI_CAN_BUS == 1U)
-            DJmotor_Receive(RxHeader, RxData);
-            #endif
-
+           //
         }
     }
 }
