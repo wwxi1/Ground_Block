@@ -39,13 +39,17 @@ void Ground_Block_Init()
 void Ground_Block_reset()
 {
     // 下降高度，打开夹爪
+
     BEEP_ON();
-    DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
-    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
-     solenoid_on(3, 0x07);
-    solenoid_is_open = 1;
-    osDelay(1000);
-    BEEP_OFF();
+    if (solenoid_is_open == 0)
+        {
+            solenoid_on(3, 0x07); // 夹爪张开
+            solenoid_is_open = 1;
+            osDelay(2000);
+        }
+    __set_FAULTMASK(1);                  // 关闭所有的中断，确保执行复位时不被中断打断
+    NVIC_SystemReset();                   // 系统软件复位，配置好的外设寄存器也一起复位,此处内含了beep_off
+    
 }
 
 void Ground_Block_close()
@@ -63,11 +67,12 @@ void Ground_Block_close()
 void Ground_Block_GetReady() // 预取大地块
 {
     // 杆先推出，延时，夹爪张开
-     solenoid_on(3, 0x04);
+    solenoid_on(3, 0x04);
     osDelay(1000);
-     solenoid_on(3, 0x07);
+    solenoid_on(3, 0x07);
     solenoid_is_open = 1;
-    osDelay(1000);
+    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -15.0f;
+    osDelay(500);
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Position;
 }
 
@@ -77,8 +82,8 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
     switch (Rxdata[1])
     {
     case 1:
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -15.7f;
-        osDelay(1500);
+        // DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -150.0f;
+        // osDelay(1500);
         if (solenoid_is_open == 1)
         {
              solenoid_on(3, 0x04); // 夹爪闭合
@@ -121,7 +126,7 @@ void Ground_Block_Lay(uint8_t *Rxdata)
         }
         break;
     case 2:
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1000.0f;
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1050.0f;
         osDelay(2000);
         if (solenoid_is_open == 0)
         {
@@ -133,6 +138,26 @@ void Ground_Block_Lay(uint8_t *Rxdata)
     default:
         break;
     }
+}
+
+void Ground_Block_Split()
+{
+      if (solenoid_is_open == 0)
+        {
+             solenoid_on(3, 0x07); // 夹爪张开
+            solenoid_is_open = 1;
+            osDelay(500);
+        }     
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -720.0f;
+        osDelay(1000);
+        if (solenoid_is_open == 1)
+        {
+             solenoid_on(3, 0x04); // 夹爪闭合
+            solenoid_is_open = 0;
+            osDelay(500);
+        }
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1180.0f;
+        osDelay(1000);
 }
 
 void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
@@ -158,8 +183,11 @@ void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
             gb_cmd = Ground_Block_Fetch_Flag;
         else if (RxHeader.ExtId == 0x01010304 && Rxdata[0] == 0X50)
             gb_cmd = Ground_Block_Lay_Flag;
+        else if (RxHeader.ExtId == 0x01010305 && Rxdata[0] == 0x53)
+                gb_cmd = Ground_Block_Split_Flag;
         else if (RxHeader.ExtId == 0x010103FF && Rxdata[0] == 0x52)
             gb_cmd = Ground_Block_reset_Flag;
+        
     }
 }
 
@@ -182,8 +210,13 @@ void Ground_Block_Process(void)
     case Ground_Block_Lay_Flag:
         Ground_Block_Lay(gb_data);
         break;
+    case Ground_Block_Split_Flag:
+        Ground_Block_Split();
+        break;
     case Ground_Block_reset_Flag:
         Ground_Block_reset();
+        break;
+    default:
         break;
     }
 }

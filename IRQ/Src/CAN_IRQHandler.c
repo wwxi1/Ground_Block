@@ -10,27 +10,27 @@
 #include "DJmotor.h"
 #include "ZDrive.h"
 
-
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
     CAN_RxHeaderTypeDef RxHeader;
-    uint8_t RxData[8];    
+    uint8_t RxData[8];
 
-    if (hcan->Instance == CAN1) 
+    if (hcan->Instance == CAN1)
     {
         // 从 FIFO 0 把数据捞出来，存到 RxData 数组里
         if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
         {
-        #if USE_DJ && (MOTOR_DJI_CAN_BUS == 0U)
+           #if USE_DJ && (MOTOR_DJI_CAN_BUS == 0U)
             DJmotor_Receive(RxHeader, RxData);
-        #endif
+            #endif
         }
-    } else if (hcan->Instance == CAN2) 
+    }
+    else if (hcan->Instance == CAN2)
     {
-        
+
         if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
         {
-            // 处理 CAN2 的消息...
+           //
         }
     }
 }
@@ -44,16 +44,17 @@ void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan)
     {
         if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData) == HAL_OK)
         {
-            Ground_Block_Func(RxHeader, RxData);
+            #if USE_ZMDR
+            ZdriveReceive(RxHeader, RxData, 1U);
+            #endif
         }
+        
     }
     else if (hcan->Instance == CAN2)
     {
         if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData) == HAL_OK)
         {
-        #if USE_ZMDR
-            ZdriveReceive(RxHeader, RxData, 1U);
-        #endif
+           Ground_Block_Func(RxHeader, RxData);
         }
     }
 }

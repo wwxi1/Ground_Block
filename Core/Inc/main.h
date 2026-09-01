@@ -69,7 +69,7 @@ void Error_Handler(void);
 #define LED_3_GPIO_Port GPIOA
 #define LED_4_Pin GPIO_PIN_7
 #define LED_4_GPIO_Port GPIOA
-#define BEEP_Pin GPIO_PIN_8
+#define BEEP_Pin GPIO_PIN_15
 #define BEEP_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
