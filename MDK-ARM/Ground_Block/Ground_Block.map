@@ -4911,7 +4911,7 @@ Image Symbol Table
     Ground_Block_Func                        0x08001851   Thumb Code   364  ground_block.o(.text.Ground_Block_Func)
     Ground_Block_GetReady                    0x080019bd   Thumb Code   100  ground_block.o(.text.Ground_Block_GetReady)
     Ground_Block_Init                        0x08001a21   Thumb Code    16  ground_block.o(.text.Ground_Block_Init)
-    Ground_Block_Lay                         0x08001a31   Thumb Code   180  ground_block.o(.text.Ground_Block_Lay)
+    Ground_Block_Lay                         0x08001a31   Thumb Code   178  ground_block.o(.text.Ground_Block_Lay)
     Ground_Block_Process                     0x08001ae5   Thumb Code   124  ground_block.o(.text.Ground_Block_Process)
     Ground_Block_Split                       0x08001b61   Thumb Code   148  ground_block.o(.text.Ground_Block_Split)
     Ground_Block_Task                        0x08001bf5   Thumb Code    14  myostasks.o(.text.Ground_Block_Task)
@@ -5247,7 +5247,8 @@ Memory Map of the image
     0x08001850   0x08001850   0x0000016c   Code   RO         2176    .text.Ground_Block_Func  ground_block.o
     0x080019bc   0x080019bc   0x00000064   Code   RO         2168    .text.Ground_Block_GetReady  ground_block.o
     0x08001a20   0x08001a20   0x00000010   Code   RO         2160    .text.Ground_Block_Init  ground_block.o
-    0x08001a30   0x08001a30   0x000000b4   Code   RO         2172    .text.Ground_Block_Lay  ground_block.o
+    0x08001a30   0x08001a30   0x000000b2   Code   RO         2172    .text.Ground_Block_Lay  ground_block.o
+    0x08001ae2   0x08001ae2   0x00000002   PAD
     0x08001ae4   0x08001ae4   0x0000007c   Code   RO         2178    .text.Ground_Block_Process  ground_block.o
     0x08001b60   0x08001b60   0x00000094   Code   RO         2174    .text.Ground_Block_Split  ground_block.o
     0x08001bf4   0x08001bf4   0x0000000e   Code   RO         2146    .text.Ground_Block_Task  myostasks.o
@@ -5689,7 +5690,7 @@ Image component sizes
        152          0          0          0          0       3278   dma.o
        106          0        138          0         12       2981   freertos.o
        168          0          0          0          0       2100   gpio.o
-      1348         14          0          0         12       4118   ground_block.o
+      1346         14          0          0         12       4118   ground_block.o
       1084          0          0          0      15392       4443   heap_4.o
        156          0          0          0          0       1087   led.o
        296          0          0          0          0       2209   list.o
@@ -5724,7 +5725,7 @@ Image component sizes
     ----------------------------------------------------------------------
      37932        120        614         16      25816     320727   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       250         12          2          3         15          0   (incl. Padding)
+       252         12          2          3         15          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 

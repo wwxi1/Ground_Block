@@ -86,15 +86,15 @@ void Ground_Block_Fetch(uint8_t *Rxdata)
 
         break;
     case 2:
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -720.0f;
-        osDelay(800);
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -850.0f;
+        osDelay(500);
         if (solenoid_is_open == 1)
         {
             solenoid_on(3, 0x04); // 夹爪闭合
             solenoid_is_open = 0;
             osDelay(500);
         }
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1180.0f;
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1200.0f;
         osDelay(500);
         break;
     default:
@@ -107,7 +107,7 @@ void Ground_Block_Lay(uint8_t *Rxdata)
     switch (Rxdata[1])
     {
     case 1:
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -200.0f;
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -80.0f;
         osDelay(500);
         if (solenoid_is_open == 0)
         {
@@ -117,7 +117,7 @@ void Ground_Block_Lay(uint8_t *Rxdata)
         }
         break;
     case 2:
-        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1050.0f;
+        DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -840.0f;
         osDelay(400);
         if (solenoid_is_open == 0)
         {
@@ -139,7 +139,7 @@ void Ground_Block_Split()
         solenoid_is_open = 1;
         osDelay(500);
     }
-    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -720.0f;
+    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -850.0f;
     osDelay(800);
     if (solenoid_is_open == 1)
     {
@@ -147,7 +147,7 @@ void Ground_Block_Split()
         solenoid_is_open = 0;
         osDelay(500);
     }
-    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1180.0f;
+    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1200.0f;
     osDelay(500);
 }
 
