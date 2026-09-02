@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Ground_Block\Ground_Block.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Ground_Block\Ground_Block.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Tue Sep  1 14:33:48 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Tue Sep  1 22:16:07 2026
 <BR><P>
 <H3>Maximum Stack Usage =        348 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -805,8 +805,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo1MsgPendingCallback
 </UL>
 
-<P><STRONG><a name="[9d]"></a>Ground_Block_GetReady</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_GetReady))
-<BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = Ground_Block_GetReady &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
+<P><STRONG><a name="[9d]"></a>Ground_Block_GetReady</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, ground_block.o(.text.Ground_Block_GetReady))
+<BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = Ground_Block_GetReady &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
@@ -860,13 +860,10 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.text.MX_FREERTOS_Init)
 </UL>
-<P><STRONG><a name="[a2]"></a>Ground_Block_reset</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_reset))
-<BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = Ground_Block_reset &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
+<P><STRONG><a name="[a2]"></a>Ground_Block_reset</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, ground_block.o(.text.Ground_Block_reset))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Ground_Block_reset
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SystemReset
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
+<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SystemReset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Process
 </UL>
@@ -1099,7 +1096,6 @@ Global Symbols
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Beep_Init
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Water
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Disable
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Enable
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BeepAlarmTask
@@ -1465,7 +1461,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedWaterTask
 </UL>
 
-<P><STRONG><a name="[f4]"></a>MX_CAN1_Init</STRONG> (Thumb, 286 bytes, Stack size 64 bytes, can.o(.text.MX_CAN1_Init))
+<P><STRONG><a name="[f4]"></a>MX_CAN1_Init</STRONG> (Thumb, 296 bytes, Stack size 64 bytes, can.o(.text.MX_CAN1_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = MX_CAN1_Init &rArr; HAL_CAN_Init &rArr; HAL_CAN_MspInit &rArr; HAL_NVIC_SetPriority &rArr; NVIC_EncodePriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_ActivateNotification
@@ -1477,7 +1473,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f7]"></a>MX_CAN2_Init</STRONG> (Thumb, 282 bytes, Stack size 64 bytes, can.o(.text.MX_CAN2_Init))
+<P><STRONG><a name="[f7]"></a>MX_CAN2_Init</STRONG> (Thumb, 298 bytes, Stack size 64 bytes, can.o(.text.MX_CAN2_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = MX_CAN2_Init &rArr; HAL_CAN_Init &rArr; HAL_CAN_MspInit &rArr; HAL_NVIC_SetPriority &rArr; NVIC_EncodePriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_ActivateNotification
@@ -1733,7 +1729,6 @@ Global Symbols
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_GetReady
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Disable
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Enable
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BeepAlarmTask
@@ -1810,7 +1805,6 @@ Global Symbols
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Lay
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fetch
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_GetReady
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_reset
 </UL>
 
 <P><STRONG><a name="[115]"></a>uxListRemove</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, list.o(.text.uxListRemove))
