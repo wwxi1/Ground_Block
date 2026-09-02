@@ -46,7 +46,7 @@ void Ground_Block_close()
 {
     // 先下降高度，再收夹爪,再收主杆
 
-    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = 0.0f;
+    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -15.7f;
     osDelay(4000);
     solenoid_on(3, 0x4);
     solenoid_is_open = 0;
