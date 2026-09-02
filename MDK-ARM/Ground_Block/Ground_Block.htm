@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Ground_Block\Ground_Block.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Ground_Block\Ground_Block.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Wed Sep  2 14:53:26 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Wed Sep  2 16:40:58 2026
 <BR><P>
 <H3>Maximum Stack Usage =        348 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -796,11 +796,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Process
 </UL>
 
-<P><STRONG><a name="[9c]"></a>Ground_Block_Fly</STRONG> (Thumb, 200 bytes, Stack size 8 bytes, ground_block.o(.text.Ground_Block_Fly))
-<BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = Ground_Block_Fly &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
+<P><STRONG><a name="[9c]"></a>Ground_Block_Fly</STRONG> (Thumb, 308 bytes, Stack size 32 bytes, ground_block.o(.text.Ground_Block_Fly))
+<BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = Ground_Block_Fly &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;solenoid_on
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Process
 </UL>
@@ -842,7 +843,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[a1]"></a>Ground_Block_Process</STRONG> (Thumb, 130 bytes, Stack size 16 bytes, ground_block.o(.text.Ground_Block_Process))
-<BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = Ground_Block_Process &rArr; Ground_Block_Lay &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
+<BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = Ground_Block_Process &rArr; Ground_Block_Fly &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fly
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Split
@@ -864,7 +865,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5d]"></a>Ground_Block_Task</STRONG> (Thumb, 14 bytes, Stack size 16 bytes, myostasks.o(.text.Ground_Block_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = Ground_Block_Task &rArr; Ground_Block_Process &rArr; Ground_Block_Lay &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
+<BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = Ground_Block_Task &rArr; Ground_Block_Process &rArr; Ground_Block_Fly &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; vListInsertEnd
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Process
 </UL>
@@ -1583,6 +1584,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Reset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DJmotor_Init
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ground_Block_Fly
 </UL>
 
 <P><STRONG><a name="[94]"></a>PID_Reset</STRONG> (Thumb, 36 bytes, Stack size 4 bytes, pid.o(.text.PID_Reset))

@@ -5,6 +5,7 @@
 #include "DJmotor.h"
 #include "cmsis_os.h"
 #include "Beep.h"
+#include "pid.h"
 
 #define GROUND_BLOCK_dji_num 4
 
@@ -12,7 +13,6 @@
 #define Ground_Block_Fetch_Flag 3
 #define Ground_Block_Lay_Flag 4
 #define Ground_Block_Split_Flag 5
-#define Ground_Block_Fly_Flag 6
 #define Ground_Block_reset_Flag 15
 
 void Ground_Block_Enable(void);

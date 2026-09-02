@@ -152,31 +152,37 @@ void Ground_Block_Split()
     osDelay(500);
 }
 
-void Ground_Block_Fly()
-{
-    if (solenoid_is_open == 1)
-    {
-        solenoid_on(3, 0x04); // 夹爪闭合
-        solenoid_is_open = 0;
-        osDelay(500);
-    }
-    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1200.0f;
-    if (solenoid_is_open == 0)
-    {
-        solenoid_on(3, 0x07); // 夹爪张开
-        solenoid_is_open = 1;
-        osDelay(200);
-    }
-    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -550.0f;
-    osDelay(250);
-    if (solenoid_is_open == 1)
-    {
-        solenoid_on(3, 0x04); // 夹爪闭合
-        solenoid_is_open = 0;
-        osDelay(500);
-    }
-    DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1200.0f;
-}
+// void Ground_Block_Fly()
+// {
+//     if (solenoid_is_open == 1)
+//     {
+//         solenoid_on(3, 0x04); // 夹爪闭合
+//         solenoid_is_open = 0;
+//         osDelay(400);
+//     }
+//     PID_Init(&DJmotor[GROUND_BLOCK_dji_num].posPID, 0.8f, 0.001f, 20.0f, PIDPOS);
+//     DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1200.0f;
+//     osDelay(350);
+
+//     if (solenoid_is_open == 0)
+//     {
+//         solenoid_on(3, 0x07); // 夹爪张开
+//         solenoid_is_open = 1;
+//         osDelay(10);
+//     }
+//     DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -950.0f;
+//     osDelay(100);
+//     if (solenoid_is_open == 1)
+//     {
+//         solenoid_on(3, 0x04); // 夹爪闭合
+//         solenoid_is_open = 0;
+//         osDelay(500);
+//     }
+//     PID_Init(&DJmotor[GROUND_BLOCK_dji_num].posPID, 0.3f, 0.001f, 20.0f, PIDPOS);
+//     DJmotor[GROUND_BLOCK_dji_num].valSet.angle_deg = -1200.0f;
+//     PID_Init(&DJmotor[GROUND_BLOCK_dji_num].posPID, 0.5f, 0.001f, 20.0f, PIDPOS);
+// }
+
 void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
 {
     if (RxHeader.ExtId == 0x01010301 && Rxdata[0] == 0x4D)
@@ -206,8 +212,6 @@ void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
             gb_cmd = Ground_Block_Lay_Flag;
         else if (RxHeader.ExtId == 0x01010305 && Rxdata[0] == 0x53)
             gb_cmd = Ground_Block_Split_Flag;
-        else if (RxHeader.ExtId == 0x01010306 && Rxdata[0] == 0x46)
-            gb_cmd = Ground_Block_Fly_Flag;
     }
 }
 
@@ -232,9 +236,6 @@ void Ground_Block_Process(void)
         break;
     case Ground_Block_Split_Flag:
         Ground_Block_Split();
-        break;
-    case Ground_Block_Fly_Flag:
-        Ground_Block_Fly();
         break;
     case Ground_Block_reset_Flag:
         Ground_Block_reset();
