@@ -12,6 +12,7 @@
 #define Ground_Block_Fetch_Flag 3
 #define Ground_Block_Lay_Flag 4
 #define Ground_Block_Split_Flag 5
+#define Ground_Block_Fly_Flag 6
 #define Ground_Block_reset_Flag 15
 
 void Ground_Block_Enable(void);
@@ -21,6 +22,7 @@ void Ground_Block_reset(void);
 void Ground_Block_GetReady(void);
 void Ground_Block_Fetch(uint8_t *Rxdata);
 void Ground_Block_Lay(uint8_t *Rxdata);
+void Ground_Block_Fly(void);
 void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata);
 void Ground_Block_Process(void);
 
