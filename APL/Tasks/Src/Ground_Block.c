@@ -12,9 +12,6 @@ void Ground_Block_Enable()
     solenoid_enable = 1;
     DJmotor[GROUND_BLOCK_dji_num].Begin = 1;
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Disable;
-    BEEP_ON();
-    osDelay(300);
-    BEEP_OFF();
 }
 
 // 失能电机控制
@@ -23,9 +20,6 @@ void Ground_Block_Disable()
     solenoid_enable = 0;                                 // 关闭电磁阀使能
     DJmotor[GROUND_BLOCK_dji_num].Begin = 0;             // 停止电机运行
     DJmotor[GROUND_BLOCK_dji_num].MODE_Set = DJ_Disable; // 设置电机为禁用模式
-    BEEP_ON();
-    osDelay(300);
-    BEEP_OFF();
 }
 
 // 初始化

@@ -23,6 +23,7 @@ void BeepAlarmTask(void *argument)
         BEEP_OFF();
         osDelay(40);
     }
+    BeepAlarmTimes = 0;
     osDelay(1);
   }
 }
