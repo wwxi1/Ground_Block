@@ -191,10 +191,12 @@ void Ground_Block_Func(CAN_RxHeaderTypeDef RxHeader, uint8_t *Rxdata)
         {
         case 0:
             Ground_Block_Disable(); // 失能
-            return;
+            break;
         case 1:
             Ground_Block_Enable(); // 使能
-            return;
+            break;
+        default:
+            break;
         }
     }
     else if (RxHeader.ExtId == 0x010103FF && Rxdata[0] == 0x52)
